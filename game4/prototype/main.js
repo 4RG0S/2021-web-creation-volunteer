@@ -3,7 +3,7 @@ function startGame(){
     $("#start-button").attr("onclick", "");
     resetGame();
     createCard();
-    timer = setInterval(startTimer, 1000);
+    setTimeout(() => timer = setInterval(startTimer, 1000), 2000);
 }
 
 
@@ -47,7 +47,7 @@ function createCard(){
         function(){
             flipAllCard();
             activatieAllCard();
-        }, 1000);
+        }, 3000);
 }
 
 
