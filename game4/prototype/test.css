@@ -14,3 +14,8 @@
     margin: 5px;
     display: inline-block;
 }
+.card_img {
+    -webkit-user-drag: none;
+    width: inherit;
+    height: inherit;
+}
