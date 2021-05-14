@@ -40,7 +40,9 @@ function createCard(){
 
     // 카드를 화면에 추가
     for(i=0; i<CARD_AMOUNT; i++){
-        $("#board").append("<div onclick='' class='card' id='card_"+(i)+"'>뒷면</div>");
+        $("#board").append("<div onclick='' class='card' id='card_"+(i)+"'>\
+        <img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>\
+        </div>");
     }
 
     // 카드의 앞면을 공개
@@ -57,9 +59,9 @@ function createCard(){
 
 // 카드의 값을 랜덤하게 설정하는 함수
 function randomizeCard(){
-    for(i = 1; i<CARD_AMOUNT; i+=2){
+    for(i = 0; i<CARD_AMOUNT/2; i++){
         cards[i] = [false, i];
-        cards[i-1] = [false, i];
+        cards[i+CARD_AMOUNT/2] = [false, i];
     }
 }
 
@@ -68,7 +70,7 @@ function randomizeCard(){
 function showAllCard(){
     for(i=0; i<CARD_AMOUNT; i++){
         $(CARD_ID+i).css({"border-color": SELECT_CARD_COLOR});
-        $(CARD_ID+i).html(cards[i][1]);
+        $(CARD_ID+i).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
         cards[i][0] = true;
     }
 }
@@ -78,7 +80,7 @@ function showAllCard(){
 function flipAllCard(){
     for(i=0; i<CARD_AMOUNT; i++){
         $(CARD_ID+i).css({"border-color": BACK_OF_CARD_COLOR});
-        $(CARD_ID+i).html("뒷면");
+        $(CARD_ID+i).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
         cards[i][0] = false;
     }
 }
@@ -113,12 +115,12 @@ function getScore(num){
 function selectCard(num){
     if(cards[num][0]){      // 선택한 카드가 앞면인 경우 선택을 취소한다.
         $('#card_'+num).css({"border-color": BACK_OF_CARD_COLOR});
-        $('#card_'+num).html("뒷면");
+        $('#card_'+num).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
         pick_1 = -1;
         cards[num][0] = !cards[num][0];
     }else{                  // 선택한 카드가 뒷면인 경우 앞면으로 뒷면집는다.
         $('#card_'+num).css({"border-color": SELECT_CARD_COLOR});
-        $(CARD_ID+num,).html(cards[num][1]);
+        $(CARD_ID+num,).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[num][1]])+" alt='카드 앞면"+(cards[num][1])+"'>");
         cards[num][0] = !cards[num][0];
 
         if(pick_1==-1){     // 첫 번째 선택한 카드인 경우
@@ -150,9 +152,9 @@ function isThisPair(){
         devatieAllCard();
         setTimeout(function(){
             $('#card_'+pick_1).css({"border-color": BACK_OF_CARD_COLOR});
-            $('#card_'+pick_1).html("뒷면");
+            $('#card_'+pick_1).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
             $('#card_'+pick_2).css({"border-color": BACK_OF_CARD_COLOR});
-            $('#card_'+pick_2).html("뒷면");
+            $('#card_'+pick_2).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
 
             // 선택한 카드들을 다시 뒤집는다.
             cards[pick_1][0] = false;
