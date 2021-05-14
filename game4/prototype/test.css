@@ -1,0 +1,16 @@
+#board {
+    background-color: white;
+    border: 1px solid blue;
+    width: 315px;
+    height: 455px;
+    margin: 10px;
+    padding: 10px;
+}
+.card {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    width: 40px;
+    height: 60px;
+    margin: 5px;
+    display: inline-block;
+}
