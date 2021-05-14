@@ -1,6 +1,7 @@
 // 게임을 시작하는 함수
 function startGame(){
     $("#start-button").attr("onclick", "");
+    TIMER_TEXT.innerHTML = "외우세요!";
     resetGame();
     createCard();
     setTimeout(() => timer = setInterval(startTimer, 1000), 2000);
@@ -174,5 +175,8 @@ function startTimer(){
         showResult();
         return null;
     }
-    TIMER_TEXT.innerHTML = time--;      // 시간(초) 감소
+    let min = parseInt(time/60);
+    let sec = time%60;
+    TIMER_TEXT.innerHTML = min+":"+sec;
+    time--;      // 시간(초) 감소
 }
