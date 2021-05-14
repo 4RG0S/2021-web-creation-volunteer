@@ -13,6 +13,7 @@ const SCORE_BOARD = document.querySelector('#score');
 var timer = null;
 var time = LIMIT_TIME;
 var score = 0;
+var pair = 0;
 var game_start = 0;
 var cards = [];
 var pick_1 = -1;

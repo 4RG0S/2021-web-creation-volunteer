@@ -12,6 +12,7 @@ function resetGame(){
     timer = null;
     time = LIMIT_TIME;
     score = 0;
+    pair = 0;
     game_start = 0;
     cards = [];
     pick_1 = -1;
@@ -25,7 +26,10 @@ function resetGame(){
 
 // 최종 게임결과를 보여주는 함수
 function showResult(){
-    alert("Your Score : "+score);
+    devatieAllCard();
+    TIMER_TEXT.innerHTML = "끝";
+    clearInterval(timer);
+    $("#start-button").attr("onclick", "startGame()");
 }
 
 
@@ -99,8 +103,8 @@ function devatieAllCard(){
 
 
 // 점수를 증가시키는 함수
-function getScore(){
-    score += 100;
+function getScore(num){
+    score += num;
     SCORE_BOARD.innerHTML = score;
 }
 
@@ -131,11 +135,17 @@ function selectCard(num){
 // 선택된 두 카드를 비교하는 함수
 function isThisPair(){
     if(cards[pick_1][1]==cards[pick_2][1]){     // 두 카드가 같은 경우
-        getScore();
+        getScore(100);
         $('#card_'+pick_1).attr("onclick", "");
         $('#card_'+pick_2).attr("onclick", "");
         pick_1 = -1;
         pick_2 = -1;
+        pair++;
+
+        if(pair*2==CARD_AMOUNT){                // 모든 카드의 짝을 맞춘 경우
+            getScore(5*time);
+            showResult();
+        }
     }else{                                      // 두 카드가 다른 경우
         devatieAllCard();
         setTimeout(function(){
@@ -159,11 +169,7 @@ function isThisPair(){
 // 시간을 재는 함수
 function startTimer(){
     if(time==-1){               // 제한 시간이 지난 경우
-        TIMER_TEXT.innerHTML = "끝";
-        devatieAllCard();
-        clearInterval(timer);
         showResult();
-        $("#start-button").attr("onclick", "startGame()");
         return null;
     }
     TIMER_TEXT.innerHTML = time--;      // 시간(초) 감소
