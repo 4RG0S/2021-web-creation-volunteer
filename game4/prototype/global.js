@@ -1,8 +1,8 @@
 // 해당 JavaScript에는 JS 파일 공용 변수 및 상수를 정의한다.
 
 // 상수
-const CARD_AMOUNT = 30;
-const LIMIT_TIME = 10;
+const CARD_AMOUNT = 24;
+const LIMIT_TIME = 90;
 const CARD_ID = "#card_";
 const SELECT_CARD_COLOR = "#ff0000";
 const BACK_OF_CARD_COLOR = "#000000";
