@@ -64,6 +64,11 @@ function randomizeCard(){
         cards[i] = [false, i];
         cards[i+CARD_AMOUNT/2] = [false, i];
     }
+
+    for (let i = cards.length - 1; i > 0; i--) {
+    	let j = Math.floor(Math.random() * (i + 1));
+    	[cards[i][1], cards[j][1]] = [cards[j][1], cards[i][1]];
+  	}
 }
 
 
