@@ -1,0 +1,35 @@
+body {
+  background: #F5F3F4;
+  margin: 0;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: #4c4c4c;
+  font-weight: 600;
+}
+
+ul{
+  padding: 0px;
+  list-style: none;
+}
+
+li{
+  width: 23%;
+  display: inline-block;
+  border: 5px solid black;
+  cursor:pointer
+}
+
+.gbox {
+  margin: 0% 25%;
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 30px;
+}
+
+.start, .problem, .correct, .result{
+  height: 400px;
+}
