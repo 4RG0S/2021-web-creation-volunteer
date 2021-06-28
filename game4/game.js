@@ -1,13 +1,13 @@
 var gameManager = (function(){
     // 상수
-    const LIMIT_TIME = 90;
-    const SECOND = 1000;
-    const MEMORIZE_TIME = 2000;
-    const PENALTY_TIME = 800;
-    const CARD_AMOUNT = 24;
+    const LIMIT_TIME = 90;      // 제한시간
+    const SECOND = 1000;        // 1초
+    const MEMORIZE_TIME = 2000; // 암기시간. 기본적으로 1초가 더해진 상태
+    const PENALTY_TIME = 800;   // 틀린경우 패널티 시간
+    const CARD_AMOUNT = 24;     // 카드 개수
     const CARD_ID = "#card_";
-    const SELECT_CARD_COLOR = "#ff0000";
-    const BACK_OF_CARD_COLOR = "#000000";
+    const SELECT_CARD_COLOR = "#ff0000";    // 선택한 카드 색상
+    const BACK_OF_CARD_COLOR = "#000000";   // 기본 카드 색상
     const FRONT_OF_CARD_IMG = ["./img/img_1.png","./img/img_2.png","./img/img_3.png","./img/img_4.png","./img/img_5.png",
     "./img/img_6.png","./img/img_7.png","./img/img_8.png","./img/img_9.png","./img/img_10.png","./img/img_11.png","./img/img_12.png"];
     const BACK_OF_CARD_IMG = "./img/back_img.png";
@@ -16,14 +16,14 @@ var gameManager = (function(){
 
 
     // 변수
-    var timer = null;
-    var time = LIMIT_TIME;
-    var score = 0;
-    var pair = 0;
-    var game_start = 0;
-    var cards = [];
-    var pick_1 = -1;
-    var pick_2 = -1;
+    var timer = null;           // 타이머 반복자가 저장될 변수
+    var time = LIMIT_TIME;      // 남은 시간
+    var score = 0;              // 점수
+    var pair = 0;               // 맞춘 짝의 개수
+    var game_start = 0;         // 게임이 시작된 여부를 확인, 0:시작전, 1:게임중
+    var cards = [];             // 카드별 태그에 대한 정보를 저장할 배열
+    var pick_1 = -1;            // 선택한 카드 1
+    var pick_2 = -1;            // 선택한 카드 2
 
 
     // 함수
