@@ -33,7 +33,7 @@ var gameManager = (function(){
         time = LIMIT_TIME;
         score = 0;
         pair = 0;
-        game_start = 0;
+        game_start = 1;
         cards = [];
         pick_1 = -1;
         pick_2 = -1;
@@ -49,7 +49,8 @@ var gameManager = (function(){
         devatieAllCard();
         TIMER_TEXT.innerHTML = "끝";
         clearInterval(timer);
-        $("#start-button").attr("onclick", "gameManager.startGame()");
+        //$("#start-button").attr("onclick", "gameManager.startGame()");
+        game_start = 0;
     }
 
 
@@ -185,11 +186,13 @@ var gameManager = (function(){
     return {
         // 게임을 시작하는 함수
         startGame: function (){
-            $("#start-button").attr("onclick", "");
-            TIMER_TEXT.innerHTML = "외우세요!";
-            resetGame();
-            createCard();
-            setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME);
+            //$("#start-button").attr("onclick", "");
+            if(game_start==0){
+                TIMER_TEXT.innerHTML = "외우세요!";
+                resetGame();
+                createCard();
+                setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME);
+            }
         },
 
         // 선택한 카드를 활성화/비활성화 시키는 함수
