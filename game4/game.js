@@ -253,7 +253,7 @@ var gameManager = (function(){
                     $(CARD_ID+pick_1).css({"border-color": SELECT_CARD_COLOR});
                     $(CARD_ID+pick_1).attr("onclick", "gameManager.selectCard("+(pick_1)+")");
                 }
-                setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME);
+                timer = setInterval(startTimer, SECOND);
             }
         },
     }
