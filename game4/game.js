@@ -1,7 +1,10 @@
 var gameManager = (function(){
     // 상수
-    const CARD_AMOUNT = 24;
     const LIMIT_TIME = 90;
+    const SECOND = 1000;
+    const MEMORIZE_TIME = 2000;
+    const PENALTY_TIME = 800;
+    const CARD_AMOUNT = 24;
     const CARD_ID = "#card_";
     const SELECT_CARD_COLOR = "#ff0000";
     const BACK_OF_CARD_COLOR = "#000000";
@@ -161,8 +164,7 @@ var gameManager = (function(){
                 pick_1 = -1;
                 pick_2 = -1;
                 activatieAllCard();
-
-            }, 800);
+            }, PENALTY_TIME);
         }
     }
 
@@ -187,7 +189,7 @@ var gameManager = (function(){
             TIMER_TEXT.innerHTML = "외우세요!";
             resetGame();
             createCard();
-            setTimeout(() => timer = setInterval(startTimer, 1000), 2000);
+            setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME);
         },
 
         // 선택한 카드를 활성화/비활성화 시키는 함수
