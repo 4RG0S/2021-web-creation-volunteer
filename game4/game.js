@@ -97,7 +97,17 @@ var gameManager = (function(){
         for(i=0; i<CARD_AMOUNT; i++){
             $(CARD_ID+i).css({"border-color": CARD_COLOR});
             $(CARD_ID+i).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
-            cards[i][0] = true;
+            //cards[i][0] = true;
+        }
+    }
+
+    // 화면 내 맞춘 카드만 앞면으로 바꿔주는 함수
+    function showCard(){
+        for(i=0; i<CARD_AMOUNT; i++){
+            if(cards[i][0]){
+                $(CARD_ID+i).css({"border-color": CARD_COLOR});
+                $(CARD_ID+i).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
+            }
         }
     }
 
@@ -107,7 +117,7 @@ var gameManager = (function(){
         for(i=0; i<CARD_AMOUNT; i++){
             $(CARD_ID+i).css({"border-color": CARD_COLOR});
             $(CARD_ID+i).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
-            cards[i][0] = false;
+            //cards[i][0] = false;
         }
     }
 
@@ -166,7 +176,9 @@ var gameManager = (function(){
                 cards[pick_2][0] = false;
                 pick_1 = -1;
                 pick_2 = -1;
-                activatieAllCard();
+                if(game_start){
+                    activatieAllCard();
+                }
             }, PENALTY_TIME);
         }
     }
@@ -235,7 +247,8 @@ var gameManager = (function(){
             if(!game_start){
                 console.log("resume");
                 game_start = true;     // 게임 재시작 버튼 lock
-                showAllCard();
+                showCard();
+                activatieAllCard();
                 setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME);
             }
         },
