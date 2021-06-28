@@ -36,7 +36,7 @@ var gameManager = (function(){
         game_start = true;
         cards = [];
         pick_1 = -1;
-        pick_2 = -1;
+        pick_2 = -2;        // 일시정지 버튼 활성화 막기 위함
 
         $("#board").remove();
         $("#main").append("<div id='board'></div>");
