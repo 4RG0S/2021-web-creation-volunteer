@@ -233,7 +233,7 @@ var gameManager = (function(){
 
         // 게임 일시정지 함수
         pauseGame: function() {
-            if(game_start){
+            if(game_start && pick_2==-1){
                 console.log("pause");
                 game_start = false;     // 게임 재시작, 재개 버튼 활성화
                 devatieAllCard();
