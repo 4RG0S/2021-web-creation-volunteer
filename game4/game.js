@@ -220,11 +220,13 @@ var gameManager = (function(){
         // 게임 일시정지 함수
         pauseGame: function() {
             console.log("pause");
+            game_start = 0;     // 게임 재시작 버트 활성화
         },
 
         // 게임 재개 함수
         resumeGame: function() {
             console.log("resume");
+            game_start = 1;     // 게임 재시작 버튼 lock
         },
     }
 }());
