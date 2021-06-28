@@ -20,7 +20,7 @@ var gameManager = (function(){
     var time = LIMIT_TIME;      // 남은 시간
     var score = 0;              // 점수
     var pair = 0;               // 맞춘 짝의 개수
-    var game_start = 0;         // 게임이 시작된 여부를 확인, 0:시작전, 1:게임중
+    var game_start = false;         // 게임이 시작된 여부를 확인, 0:시작전, 1:게임중
     var cards = [];             // 카드별 태그에 대한 정보를 저장할 배열
     var pick_1 = -1;            // 선택한 카드 1
     var pick_2 = -1;            // 선택한 카드 2
@@ -33,7 +33,7 @@ var gameManager = (function(){
         time = LIMIT_TIME;
         score = 0;
         pair = 0;
-        game_start = 1;
+        game_start = true;
         cards = [];
         pick_1 = -1;
         pick_2 = -1;
@@ -50,7 +50,7 @@ var gameManager = (function(){
         TIMER_TEXT.innerHTML = "끝";
         clearInterval(timer);
         //$("#start-button").attr("onclick", "gameManager.startGame()");
-        game_start = 0;
+        game_start = false;
     }
 
 
@@ -189,7 +189,7 @@ var gameManager = (function(){
         // 게임을 시작하는 함수
         startGame: function (){
             //$("#start-button").attr("onclick", "");
-            if(game_start==0){
+            if(!game_start){
                 TIMER_TEXT.innerHTML = "외우세요!";
                 resetGame();
                 createCard();
@@ -221,9 +221,9 @@ var gameManager = (function(){
 
         // 게임 일시정지 함수
         pauseGame: function() {
-            if(game_start==1){
+            if(game_start){
                 console.log("pause");
-                game_start = 0;     // 게임 재시작, 재개 버튼 활성화
+                game_start = false;     // 게임 재시작, 재개 버튼 활성화
                 devatieAllCard();
                 flipAllCard();
                 clearInterval(timer);
@@ -232,9 +232,9 @@ var gameManager = (function(){
 
         // 게임 재개 함수
         resumeGame: function() {
-            if(game_start==0){
+            if(!game_start){
                 console.log("resume");
-                game_start = 1;     // 게임 재시작 버튼 lock
+                game_start = true;     // 게임 재시작 버튼 lock
                 showAllCard();
                 setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME);
             }
