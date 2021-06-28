@@ -7,7 +7,7 @@ var gameManager = (function(){
     const CARD_AMOUNT = 24;     // 카드 개수
     const CARD_ID = "#card_";
     const SELECT_CARD_COLOR = "#ff0000";    // 선택한 카드 색상
-    const BACK_OF_CARD_COLOR = "#000000";   // 기본 카드 색상
+    const CARD_COLOR = "#000000";   // 기본 카드 색상
     const FRONT_OF_CARD_IMG = ["./img/img_1.png","./img/img_2.png","./img/img_3.png","./img/img_4.png","./img/img_5.png",
     "./img/img_6.png","./img/img_7.png","./img/img_8.png","./img/img_9.png","./img/img_10.png","./img/img_11.png","./img/img_12.png"];
     const BACK_OF_CARD_IMG = "./img/back_img.png";
@@ -95,7 +95,7 @@ var gameManager = (function(){
     // 화면 내 모든 카드를 앞면으로 바꿔주는 함수
     function showAllCard(){
         for(i=0; i<CARD_AMOUNT; i++){
-            $(CARD_ID+i).css({"border-color": SELECT_CARD_COLOR});
+            $(CARD_ID+i).css({"border-color": CARD_COLOR});
             $(CARD_ID+i).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
             cards[i][0] = true;
         }
@@ -105,7 +105,7 @@ var gameManager = (function(){
     // 화면 내 모든 카드를 뒷면으로 바꿔주는 함수
     function flipAllCard(){
         for(i=0; i<CARD_AMOUNT; i++){
-            $(CARD_ID+i).css({"border-color": BACK_OF_CARD_COLOR});
+            $(CARD_ID+i).css({"border-color": CARD_COLOR});
             $(CARD_ID+i).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
             cards[i][0] = false;
         }
@@ -143,6 +143,8 @@ var gameManager = (function(){
             getScore(100);
             $('#card_'+pick_1).attr("onclick", "");
             $('#card_'+pick_2).attr("onclick", "");
+            $('#card_'+pick_1).css({"border-color": CARD_COLOR});
+            $('#card_'+pick_2).css({"border-color": CARD_COLOR});
             pick_1 = -1;
             pick_2 = -1;
             pair++;
@@ -154,9 +156,9 @@ var gameManager = (function(){
         }else{                                      // 두 카드가 다른 경우
             devatieAllCard();
             setTimeout(function(){
-                $('#card_'+pick_1).css({"border-color": BACK_OF_CARD_COLOR});
+                $('#card_'+pick_1).css({"border-color": CARD_COLOR});
                 $('#card_'+pick_1).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
-                $('#card_'+pick_2).css({"border-color": BACK_OF_CARD_COLOR});
+                $('#card_'+pick_2).css({"border-color": CARD_COLOR});
                 $('#card_'+pick_2).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
 
                 // 선택한 카드들을 다시 뒤집는다.
@@ -198,7 +200,7 @@ var gameManager = (function(){
         // 선택한 카드를 활성화/비활성화 시키는 함수
         selectCard : function (num){
             if(cards[num][0]){      // 선택한 카드가 앞면인 경우 선택을 취소한다.
-                $('#card_'+num).css({"border-color": BACK_OF_CARD_COLOR});
+                $('#card_'+num).css({"border-color": CARD_COLOR});
                 $('#card_'+num).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
                 pick_1 = -1;
                 cards[num][0] = !cards[num][0];
@@ -219,14 +221,23 @@ var gameManager = (function(){
 
         // 게임 일시정지 함수
         pauseGame: function() {
-            console.log("pause");
-            game_start = 0;     // 게임 재시작 버트 활성화
+            if(game_start==1){
+                console.log("pause");
+                game_start = 0;     // 게임 재시작, 재개 버튼 활성화
+                devatieAllCard();
+                flipAllCard();
+                clearInterval(timer);
+            }
         },
 
         // 게임 재개 함수
         resumeGame: function() {
-            console.log("resume");
-            game_start = 1;     // 게임 재시작 버튼 lock
+            if(game_start==0){
+                console.log("resume");
+                game_start = 1;     // 게임 재시작 버튼 lock
+                showAllCard();
+                setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME);
+            }
         },
     }
 }());
