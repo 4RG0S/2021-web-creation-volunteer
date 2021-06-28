@@ -178,6 +178,8 @@ var gameManager = (function(){
         TIMER_TEXT.innerHTML = min+":"+sec;
         time--;      // 시간(초) 감소
     }
+
+    // 아래부터는 html 내 button을 통해 외부에서 접근되는 함수이다.
     return {
         // 게임을 시작하는 함수
         startGame: function (){
@@ -208,6 +210,16 @@ var gameManager = (function(){
                     isThisPair();
                 }
             }
-        }
+        },
+
+        // 게임 일시정지 함수
+        pauseGame: function() {
+            console.log("pause");
+        },
+
+        // 게임 재개 함수
+        resumeGame: function() {
+            console.log("resume");
+        },
     }
 }());
