@@ -25,6 +25,7 @@ var gameManager = (function(){
     var cards = [];             // 카드별 태그에 대한 정보를 저장할 배열
     var pick_1 = -1;            // 선택한 카드 1
     var pick_2 = -2;            // 선택한 카드 2
+    var bgm = null;             // 게임 bgm
 
 
     // 함수
@@ -42,6 +43,12 @@ var gameManager = (function(){
         $("#board").remove();
         $("#main").append("<div id='board'></div>");
         SCORE_BOARD.innerHTML = score;
+
+        // bgm 설정
+        bgm = new Audio(SOUND_LOCATE+"bgm.m4a");  
+        bgm.loop = true;
+        bgm.volume = 0.3;
+        bgm.play();
     }
 
 
@@ -53,6 +60,11 @@ var gameManager = (function(){
         //$("#start-button").attr("onclick", "gameManager.startGame()");
         pick_2 = -2;
         game_start = false;
+        bgm.pause();
+        let audio = new Audio(SOUND_LOCATE+"success.m4a");
+        audio.volume = 0.5;
+        audio.loop = false;
+        audio.play();
     }
 
 
@@ -180,7 +192,7 @@ var gameManager = (function(){
             devatieAllCard();
             let audio = new Audio(SOUND_LOCATE+"beep.mp3");
             audio.loop = false;
-            audio.volume = 0.5;
+            audio.volume = 0.3;
             audio.play();
 
             setTimeout(function(){
@@ -268,6 +280,7 @@ var gameManager = (function(){
                 devatieAllCard();
                 flipAllCard();
                 clearInterval(timer);
+                bgm.pause();
             }
         },
 
@@ -278,6 +291,7 @@ var gameManager = (function(){
                 game_start = true;     // 게임 재시작 버튼 lock
                 showCard();
                 activatieAllCard();
+                bgm.play();
 
                 // 선택중인 카드가 있었던 경우 정상동작하도록 별도 처리
                 if(pick_1!=-1){
