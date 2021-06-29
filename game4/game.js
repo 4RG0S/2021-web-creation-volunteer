@@ -24,7 +24,7 @@ var gameManager = (function(){
     var game_start = false;         // 게임이 시작된 여부를 확인, 0:시작전, 1:게임중
     var cards = [];             // 카드별 태그에 대한 정보를 저장할 배열
     var pick_1 = -1;            // 선택한 카드 1
-    var pick_2 = -1;            // 선택한 카드 2
+    var pick_2 = -2;            // 선택한 카드 2
 
 
     // 함수
@@ -51,6 +51,7 @@ var gameManager = (function(){
         TIMER_TEXT.innerHTML = "끝";
         clearInterval(timer);
         //$("#start-button").attr("onclick", "gameManager.startGame()");
+        pick_2 = -2;
         game_start = false;
     }
 
@@ -75,6 +76,7 @@ var gameManager = (function(){
             function(){
                 flipAllCard();
                 activatieAllCard();
+                pick_2 = -1;
             }, MEMORIZE_TIME);
         
     }
@@ -271,11 +273,13 @@ var gameManager = (function(){
 
         // 게임 재개 함수
         resumeGame: function() {
-            if(!game_start){
+            if(!game_start && pick_2==-1){
                 console.log("resume");
                 game_start = true;     // 게임 재시작 버튼 lock
                 showCard();
                 activatieAllCard();
+
+                // 선택중인 카드가 있었던 경우 정상동작하도록 별도 처리
                 if(pick_1!=-1){
                     $(CARD_ID+pick_1).css({"border-color": SELECT_CARD_COLOR});
                     $(CARD_ID+pick_1).attr("onclick", "gameManager.selectCard("+(pick_1)+")");
