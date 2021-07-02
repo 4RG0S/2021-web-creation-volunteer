@@ -250,6 +250,7 @@ var gameManager = (function(){
             // 카드 뒤집는 효과음
             let audio = new Audio(SOUND_LOCATE+"card.mp3");
             audio.loop = false;
+            audio.volume = 0.6;
             audio.play();
 
             if(cards[num][0]){      // 선택한 카드가 앞면인 경우 선택을 취소한다.
