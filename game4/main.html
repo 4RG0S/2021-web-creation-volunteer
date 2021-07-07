@@ -10,8 +10,14 @@
         <link rel="stylesheet" href="./css/borad.css">
         <link rel="stylesheet" href="./css/card.css">
         <link rel="stylesheet" href="./css/button.css">
+        <link rel="stylesheet" href="./css/text.css">
     </head>
     <body>
+        <div id="start-page">
+            <!-- 시작 화면을 꾸며주세요! -->
+            <p>시작화면입니다</p>
+            <button id="start-button-main" onclick="gameManager.start()">start</button>
+        </div>
         <div id="main" class="container">
             <div id="game" class="row">
                 <div id='btn-space' class='col-12 col-md-3'>
@@ -22,11 +28,13 @@
                     <br>
                     <button id="sound-button" onclick='gameManager.sound()'>sound</button>
                 </div>
-                <div id="borad-space" class='col-12  col-md-6'>
+                <div id="borad-space" class='col-12 col-md-6'>
                     <div id="board"></div>
                 </div>
                 <div id="score-space" class='col-12 col-md-3'>
                     <label>TIMER</label><p id = "timer">-:--</p>
+                    </br>
+                    <p id="message"></p>
                     </br>
                     <label>SCORE</label><p id = "score">0</p>
                 </div>

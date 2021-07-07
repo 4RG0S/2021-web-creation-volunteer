@@ -1,12 +1,15 @@
+button {
+}
+#start-button-main {
+    
+}
 #start-button {
 
 }
 #pause-button {
-    position: absolute;
     display: inline;
 }
 #resume-button {
-    position: absolute;
     display: none;
 }
 #sound-button {

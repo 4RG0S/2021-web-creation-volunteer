@@ -2,7 +2,7 @@ var gameManager = (function(){
     // 상수
     const LIMIT_TIME = 90;      // 제한시간
     const SECOND = 1000;        // 1초
-    const MEMORIZE_TIME = 3000; // 암기시간
+    const MEMORIZE_TIME = 3050; // 암기시간
     const PENALTY_TIME = 800;   // 틀린경우 패널티 시간
     const CARD_AMOUNT = 24;     // 카드 개수
     const CARD_ID = "#card_";
@@ -41,6 +41,7 @@ var gameManager = (function(){
 
         $("#board").remove();
         $("#borad-space").append("<div id='board' class='row'></div>");
+        $("#message").html("외우세요!");
         SCORE_BOARD.innerHTML = score;
 
         // bgm 설정
@@ -55,6 +56,7 @@ var gameManager = (function(){
     function showResult(){
         devatieAllCard();
         clearInterval(timer);
+        $("#message").html("게임 종료!");
         pick_2 = -2;
         game_start = false;
         bgm.pause();
@@ -83,6 +85,7 @@ var gameManager = (function(){
         // 잠시 후 카드를 모두 뒤집고 클릭 활성화
         setTimeout(
             function(){
+                $("#message").html("");
                 flipAllCard();
                 activatieAllCard();
                 pick_2 = -1;
@@ -230,6 +233,14 @@ var gameManager = (function(){
 
     // 아래부터는 html 내 button을 통해 외부에서 접근되는 함수이다.
     return {
+        // 게임을 시작하는 함수 : 시작화면에서 수행. 시작화면을 제거한다
+        start: function (){
+            this.startGame();
+            setTimeout(function(){
+            $("#start-page").remove();
+            }, 50);
+        },
+
         // 게임을 시작하는 함수
         startGame: function (){
             //$("#start-button").attr("onclick", "");
@@ -300,6 +311,8 @@ var gameManager = (function(){
                 timer = setInterval(startTimer, SECOND);
             }
         },
+
+        // 소리 On/Off 함수
         sound: function() {
             if(volume==1){
                 bgm.volume = 0;
