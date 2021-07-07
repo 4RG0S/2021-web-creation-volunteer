@@ -24,6 +24,7 @@ var gameManager = (function(){
     var pick_1 = -1;            // 선택한 카드 1
     var pick_2 = -2;            // 선택한 카드 2
     var bgm = null;             // 게임 bgm
+    var volume = 1;
 
 
     // 함수
@@ -45,7 +46,7 @@ var gameManager = (function(){
         // bgm 설정
         bgm = new Audio(SOUND_LOCATE+"bgm.m4a");  
         bgm.loop = true;
-        bgm.volume = 0.3;
+        bgm.volume = 0.3*volume;
         bgm.play();
     }
 
@@ -53,13 +54,12 @@ var gameManager = (function(){
     // 최종 게임결과를 보여주는 함수
     function showResult(){
         devatieAllCard();
-        TIMER_TEXT.innerHTML = "끝";
         clearInterval(timer);
         pick_2 = -2;
         game_start = false;
         bgm.pause();
         let audio = new Audio(SOUND_LOCATE+"success.m4a");
-        audio.volume = 0.5;
+        audio.volume = 0.5*volume;
         audio.loop = false;
         audio.play();
     }
@@ -109,6 +109,7 @@ var gameManager = (function(){
     function showAllCard(){
         let audio = new Audio(SOUND_LOCATE+"card.mp3");
         audio.loop = false;
+        audio.volume = 1*volume;
         audio.play();
         for(i=0; i<CARD_AMOUNT; i++){
             $(CARD_ID+i).html("<img class='card_img col-md-12' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
@@ -120,6 +121,7 @@ var gameManager = (function(){
     function showCard(){
         let audio = new Audio(SOUND_LOCATE+"card.mp3");
         audio.loop = false;
+        audio.volume = 1*volume;
         audio.play();
         for(i=0; i<CARD_AMOUNT; i++){
             if(cards[i][0]){
@@ -133,6 +135,7 @@ var gameManager = (function(){
     function flipAllCard(){
         let audio = new Audio(SOUND_LOCATE+"card.mp3");
         audio.loop = false;
+        audio.volume = 1*volume;
         audio.play();
         for(i=0; i<CARD_AMOUNT; i++){
             $(CARD_ID+i).html("<img class='card_img col-md-12' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
@@ -186,12 +189,13 @@ var gameManager = (function(){
             devatieAllCard();
             let audio = new Audio(SOUND_LOCATE+"beep.mp3");
             audio.loop = false;
-            audio.volume = 0.3;
+            audio.volume = 0.3*volume;
             audio.play();
 
             setTimeout(function(){
                 let audio2 = new Audio(SOUND_LOCATE+"card.mp3");
                 audio2.loop = false;
+                audio2.volume = 1*volume;
                 audio2.play();
             }, PENALTY_TIME-200);
 
@@ -230,7 +234,7 @@ var gameManager = (function(){
         startGame: function (){
             //$("#start-button").attr("onclick", "");
             if(!game_start){
-                TIMER_TEXT.innerHTML = "외우세요!";
+                TIMER_TEXT.innerHTML = "-:--";
                 resetGame();
                 createCard();
                 setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME-SECOND);
@@ -242,7 +246,7 @@ var gameManager = (function(){
             // 카드 뒤집는 효과음
             let audio = new Audio(SOUND_LOCATE+"card.mp3");
             audio.loop = false;
-            audio.volume = 0.6;
+            audio.volume = 0.6*volume;
             audio.play();
 
             if(cards[num][0]){      // 선택한 카드가 앞면인 경우 선택을 취소한다.
@@ -291,6 +295,16 @@ var gameManager = (function(){
                 }
                 timer = setInterval(startTimer, SECOND);
             }
+        },
+        sound: function() {
+            if(volume==1){
+                bgm.volume = 0;
+                volume = 0;
+            }else{
+                bgm.volume = 0.3;
+                volume = 1;
+            }
+
         },
     }
 }());
