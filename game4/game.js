@@ -6,8 +6,6 @@ var gameManager = (function(){
     const PENALTY_TIME = 800;   // 틀린경우 패널티 시간
     const CARD_AMOUNT = 24;     // 카드 개수
     const CARD_ID = "#card_";
-    const SELECT_CARD_COLOR = "#ff0000";    // 선택한 카드 색상
-    const CARD_COLOR = "#000000";   // 기본 카드 색상
     const FRONT_OF_CARD_IMG = ["./img/img_1.png","./img/img_2.png","./img/img_3.png","./img/img_4.png","./img/img_5.png",
     "./img/img_6.png","./img/img_7.png","./img/img_8.png","./img/img_9.png","./img/img_10.png","./img/img_11.png","./img/img_12.png"];
     const BACK_OF_CARD_IMG = "./img/back_img.png";
@@ -57,7 +55,6 @@ var gameManager = (function(){
         devatieAllCard();
         TIMER_TEXT.innerHTML = "끝";
         clearInterval(timer);
-        //$("#start-button").attr("onclick", "gameManager.startGame()");
         pick_2 = -2;
         game_start = false;
         bgm.pause();
@@ -223,7 +220,7 @@ var gameManager = (function(){
         }
         let min = parseInt(time/60);
         let sec = time%60;
-        TIMER_TEXT.innerHTML = min+":"+sec;
+        TIMER_TEXT.innerHTML = min+":"+(sec<10?"0":"")+sec;
         time--;      // 시간(초) 감소
     }
 
