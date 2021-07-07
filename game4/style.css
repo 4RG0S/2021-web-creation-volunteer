@@ -1,0 +1,47 @@
+html, body {
+    background-color: #F4F1EC;
+    width: 100%;
+    height: 100%;
+}
+#main {
+    height: 100%;
+}
+#game {
+    align-items: center;
+    justify-items: center;
+    height: 100%;
+}
+#borad-space {
+    padding: 1% 2%;
+    background-color: white;
+    border-radius: 3%;
+}
+#board {
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+div {
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.card {
+    display: inline-block;
+    border: 0px solid #000000;
+    padding: 1.2%;
+    align-items: center;
+    justify-items: center;
+}
+.card_img {
+    border: 0.1px solid #555555;
+    box-shadow: 4px 4px 4px #bbbbbb;
+    border-radius: 5%;
+    -webkit-user-drag: none;
+}
+.chosen_card {
+    border-color: #ff0000;
+}
