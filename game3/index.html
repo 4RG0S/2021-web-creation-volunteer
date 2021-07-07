@@ -1,1 +1,64 @@
-<h1>TEST</h1>
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Escape Room</title>
+        <style>
+          body {
+            background-color: black;
+          }
+          .hidden-object {
+            position: absolute;
+            width:100px;
+            height: 100px;
+            background: black;
+            transition: background-color 1s ease-out 100ms
+          }
+
+          .hidden-object:hover {
+            background-color: #FF1493;
+          }
+
+          .hidden-message {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+          }
+
+          #obj1 {
+            top: 400px;
+            right: 400px;
+          }
+
+          #obj2 {
+            top: 200px;
+            right: 200px;
+          }
+
+          #obj3 {
+            top: 150px;
+            right: 500px;
+          }
+
+          #obj4 {
+            top: 600px;
+            right: 400px;
+          }
+
+          #message1 {
+            top: 150px;
+            right: 600px
+          }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+      <div id="obj1" class="hidden-object"></div>
+      <div id="obj2" class="hidden-object"></div>
+      <div id="obj3" class="hidden-object"></div>
+      <div id="obj4" class="hidden-object"></div>
+      <div id="message1" class="hidden-message"></div>
+    </body>
+    <script src="js/object-controller.js"></script>
+</html>
