@@ -272,6 +272,8 @@ var gameManager = (function(){
             if(game_start && pick_2==-1){
                 console.log("pause");
                 game_start = false;     // 게임 재시작, 재개 버튼 활성화
+                $("#resume-button").css('display','inline');
+                $("#pause-button").css('display','none');
                 devatieAllCard();
                 flipAllCard();
                 clearInterval(timer);
@@ -284,6 +286,8 @@ var gameManager = (function(){
             if(!game_start && pick_2==-1){
                 console.log("resume");
                 game_start = true;     // 게임 재시작 버튼 lock
+                $("#resume-button").css('display','none');
+                $("#pause-button").css('display','inline');
                 showCard();
                 activatieAllCard();
                 bgm.play();
