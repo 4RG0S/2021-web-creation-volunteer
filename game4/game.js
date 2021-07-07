@@ -40,7 +40,7 @@ var gameManager = (function(){
         pick_2 = -2;        // 일시정지 버튼 활성화 막기 위함
 
         $("#board").remove();
-        $("#borad-space").append("<div id='board'></div>");
+        $("#borad-space").append("<div id='board' class='row'></div>");
         SCORE_BOARD.innerHTML = score;
 
         // bgm 설정
@@ -72,8 +72,8 @@ var gameManager = (function(){
 
         // 카드를 화면에 추가
         for(i=0; i<CARD_AMOUNT; i++){
-            $("#board").append("<div onclick='' class='card col-md-2' id='card_"+(i)+"'>\
-            <img class='card_img col-md-12' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>\
+            $("#board").append("<div onclick='' class='card col-2 col-md-2' id='card_"+(i)+"'>\
+            <img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>\
             </div>");
         }
 
@@ -112,7 +112,7 @@ var gameManager = (function(){
         audio.volume = 1*volume;
         audio.play();
         for(i=0; i<CARD_AMOUNT; i++){
-            $(CARD_ID+i).html("<img class='card_img col-md-12' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
+            $(CARD_ID+i).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
             //cards[i][0] = true;
         }
     }
@@ -125,7 +125,7 @@ var gameManager = (function(){
         audio.play();
         for(i=0; i<CARD_AMOUNT; i++){
             if(cards[i][0]){
-                $(CARD_ID+i).html("<img class='card_img col-md-12' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
+                $(CARD_ID+i).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[i][1]])+" alt='카드 앞면"+(cards[i][1])+"'>");
             }
         }
     }
@@ -138,7 +138,7 @@ var gameManager = (function(){
         audio.volume = 1*volume;
         audio.play();
         for(i=0; i<CARD_AMOUNT; i++){
-            $(CARD_ID+i).html("<img class='card_img col-md-12' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
+            $(CARD_ID+i).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
             //cards[i][0] = false;
         }
     }
@@ -175,8 +175,8 @@ var gameManager = (function(){
             getScore(100);
             $(CARD_ID+pick_1).attr("onclick", "");
             $(CARD_ID+pick_2).attr("onclick", "");
-            $(CARD_ID+pick_1).html("<img class='card_img col-md-12' src="+(FRONT_OF_CARD_IMG[cards[pick_1][1]])+" alt='카드 앞면"+(cards[pick_1][1])+"'>");
-            $(CARD_ID+pick_2).html("<img class='card_img col-md-12' src="+(FRONT_OF_CARD_IMG[cards[pick_2][1]])+" alt='카드 앞면"+(cards[pick_2][1])+"'>");
+            $(CARD_ID+pick_1).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[pick_1][1]])+" alt='카드 앞면"+(cards[pick_1][1])+"'>");
+            $(CARD_ID+pick_2).html("<img class='card_img' src="+(FRONT_OF_CARD_IMG[cards[pick_2][1]])+" alt='카드 앞면"+(cards[pick_2][1])+"'>");
             pick_1 = -1;
             pick_2 = -1;
             pair++;
@@ -200,8 +200,8 @@ var gameManager = (function(){
             }, PENALTY_TIME-200);
 
             setTimeout(function(){
-                $(CARD_ID+pick_1).html("<img class='card_img col-md-12' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
-                $(CARD_ID+pick_2).html("<img class='card_img col-md-12' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
+                $(CARD_ID+pick_1).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
+                $(CARD_ID+pick_2).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
 
                 // 선택한 카드들을 다시 뒤집는다.
                 cards[pick_1][0] = false;
@@ -250,11 +250,11 @@ var gameManager = (function(){
             audio.play();
 
             if(cards[num][0]){      // 선택한 카드가 앞면인 경우 선택을 취소한다.
-                $(CARD_ID+num).html("<img class='card_img col-md-12' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
+                $(CARD_ID+num).html("<img class='card_img' src="+(BACK_OF_CARD_IMG)+" alt='카드 뒷면'>");
                 pick_1 = -1;
                 cards[num][0] = !cards[num][0];
             }else{                  // 선택한 카드가 뒷면인 경우 앞면으로 뒷면집는다.
-                $(CARD_ID+num).html("<img class='card_img col-md-12 chosen_card' src="+(FRONT_OF_CARD_IMG[cards[num][1]])+" alt='카드 앞면"+(cards[num][1])+"'>");
+                $(CARD_ID+num).html("<img class='card_img chosen_card' src="+(FRONT_OF_CARD_IMG[cards[num][1]])+" alt='카드 앞면"+(cards[num][1])+"'>");
                 cards[num][0] = !cards[num][0];
 
                 if(pick_1==-1){     // 첫 번째 선택한 카드인 경우
@@ -291,7 +291,7 @@ var gameManager = (function(){
                 // 선택중인 카드가 있었던 경우 정상동작하도록 별도 처리
                 if(pick_1!=-1){
                     $(CARD_ID+pick_1).attr("onclick", "gameManager.selectCard("+(pick_1)+")");
-                    $(CARD_ID+pick_1).html("<img class='card_img col-md-12 chosen_card' src="+(FRONT_OF_CARD_IMG[cards[pick_1][1]])+" alt='카드 앞면"+(cards[pick_1][1])+"'>");
+                    $(CARD_ID+pick_1).html("<img class='card_img chosen_card' src="+(FRONT_OF_CARD_IMG[cards[pick_1][1]])+" alt='카드 앞면"+(cards[pick_1][1])+"'>");
                 }
                 timer = setInterval(startTimer, SECOND);
             }

@@ -11,15 +11,25 @@ html, body {
     height: 100%;
 }
 #borad-space {
-    padding: 1% 2%;
+    position: relative;
+    padding: 2% 2%;
     background-color: white;
     border-radius: 3%;
 }
+#borad-space:before {
+    content: "";
+    display: block;
+    padding-top: 90%;
+}
 #board {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     margin: 0 auto;
-    align-items: center;
-    width: 100%;
-    height: auto;
+    align-content: center;
+    width: 90%;
 }
 div {
   -ms-user-select: none; 
@@ -28,14 +38,15 @@ div {
   -webkit-user-select: none;
   user-select: none;
 }
+
 .card {
-    display: inline-block;
     border: 0px solid #000000;
-    padding: 1.2%;
+    padding: 1.5%;
     align-items: center;
     justify-items: center;
 }
 .card_img {
+    width: 100%;
     border: 0.1px solid #555555;
     box-shadow: 4px 4px 4px #bbbbbb;
     border-radius: 5%;
