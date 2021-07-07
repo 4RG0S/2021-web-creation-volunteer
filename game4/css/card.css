@@ -1,0 +1,17 @@
+.card {
+    border: 0px solid #000000;
+    padding: 1.5%;
+    align-items: center;
+    justify-items: center;
+}
+.card_img {
+    position: relative;
+    width: 100%;
+    border: 2px solid #888888;
+    box-shadow: 4px 4px 4px #bbbbbb;
+    border-radius: 5%;
+    -webkit-user-drag: none;
+}
+.chosen_card {
+    border-color: #ff0000;
+}
