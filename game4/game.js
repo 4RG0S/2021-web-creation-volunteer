@@ -248,6 +248,8 @@ var gameManager = (function(){
                 TIMER_TEXT.innerHTML = "-:--";
                 resetGame();
                 createCard();
+                $("#resume-button").css('display','none');
+                $("#pause-button").css('display','inline');
                 setTimeout(() => timer = setInterval(startTimer, SECOND), MEMORIZE_TIME-SECOND);
             }
         },
