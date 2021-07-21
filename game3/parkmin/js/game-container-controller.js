@@ -1,4 +1,3 @@
-
 var bgm_btn = document.querySelector('#unmute-bgm');
 var bgm = document.querySelector('#bgm');
 

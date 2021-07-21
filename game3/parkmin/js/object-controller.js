@@ -23,7 +23,7 @@ clipboard.onclick = function () {
     this.style.visibility = "hidden";
 }
 
-obj1.onclick = function() {
+obj1.onclick = function () {
     var audio = new Audio('audio/paper-fliping.wav');
     audio.volume = 0.5;
     audio.play();
@@ -45,7 +45,7 @@ obj2.onclick = function () {
     obj2.style.opacity = 0.5;
 }
 
-obj3.onclick = function() {
+obj3.onclick = function () {
     var inputString = prompt('PC를 이용하려면 암호를 입력하세요.', '');
     if (inputString == "YWCA") {
         var audio = new Audio('audio/pc-start.wav');
@@ -56,7 +56,7 @@ obj3.onclick = function() {
         if (confirm('손전등 획득! 게임 성공시 탈출 화면으로 넘어가기?')) {
             document.location = "escape.html";
         }
-        
+
     } else {
         var audio = new Audio('audio/pc-error.wav');
         audio.volume = 0.5;
@@ -70,8 +70,7 @@ msg1.onmouseover = function () {
     if (msg1_flag === 1) {
         var audio = new Audio('audio/knock.mp3');
         audio.play();
-        alert('책상에서 부스럭 소리가 났다.');        
-    } 
+        alert('책상에서 부스럭 소리가 났다.');
+    }
     msg1_flag = 0;
 }
-
