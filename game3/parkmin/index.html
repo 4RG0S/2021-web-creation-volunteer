@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Escape Room</title>
-        <style>
-          html {
-            background-color: black;
-            height: 100%;
-          }
-          
-          iframe {
-            width: 1600px;
-            height: 900px;
-            animation: blinkingBackground 10s infinite ease-in-out;
-          }
-          body {
-            text-align: center;
-          }
-          @keyframes blinkingBackground{
-            0%		{ opacity: 100%; }
-            10%   { opacity: 0%; }
-            15%   { opacity: 100%; }
-	        }
-          video{
-              width: 0;
-              height: 0;
-          }
-        </style>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      </head>
-      <body>
-        <video onloadstart="this.volume=0.3" id="bgm" src="audio/bgm.mp3" muted autoplay></video>
-        <iframe class="model" src="game.html" frameborder="0" scrolling="no">
-          이 브라우저는 지원되지 않습니다.
-        </iframe>
-        <button id="unmute-bgm">소리 켜기</button>
-      </body>
-      <script src="js/game-container-controller.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <title>Escape Room</title>
+  <style>
+    html {
+      background-color: black;
+      height: 100%;
+    }
+
+    iframe {
+      width: 1600px;
+      height: 900px;
+      animation: blinkingBackground 10s infinite ease-in-out;
+    }
+
+    body {
+      text-align: center;
+    }
+
+    @keyframes blinkingBackground {
+      0% {
+        opacity: 100%;
+      }
+
+      10% {
+        opacity: 0%;
+      }
+
+      15% {
+        opacity: 100%;
+      }
+    }
+
+    video {
+      width: 0;
+      height: 0;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+  <video onloadstart="this.volume=0.3" id="bgm" src="audio/bgm.mp3" muted autoplay></video>
+  <iframe class="model" src="game.html" frameborder="0" scrolling="no">
+    이 브라우저는 지원되지 않습니다.
+  </iframe>
+  <button id="unmute-bgm">소리 켜기</button>
+</body>
+<script src="js/game-container-controller.js"></script>
+
 </html>

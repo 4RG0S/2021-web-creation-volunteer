@@ -1,5 +1,3 @@
-
-
 var key = document.querySelector('#key');
 var door = document.querySelector('#knock-door-area');
 var game_closing_sheet = document.querySelector('#game-closing');
