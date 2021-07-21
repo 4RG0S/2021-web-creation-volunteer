@@ -46,13 +46,17 @@ obj2.onclick = function () {
 }
 
 obj3.onclick = function() {
-    var inputString = prompt('PC를 이용하려면 암호를 입력하세요.', '힌트 : YWCA');
+    var inputString = prompt('PC를 이용하려면 암호를 입력하세요.', '');
     if (inputString == "YWCA") {
         var audio = new Audio('audio/pc-start.wav');
         audio.volume = 0.5;
         audio.play();
         alert('DEBUG :: 다음 단계 게임 진행')
         obj3.style.opacity = 0.5;
+        if (confirm('손전등 획득! 게임 성공시 탈출 화면으로 넘어가기?')) {
+            document.location = "escape.html";
+        }
+        
     } else {
         var audio = new Audio('audio/pc-error.wav');
         audio.volume = 0.5;
