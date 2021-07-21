@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Escape Room</title>
+        <style>
+          body {
+            background-color: black;
+          }
+
+          html { 
+            background: url(images/door.jpg) no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+          }
+
+          #vision {
+            pointer-events: none;
+
+            position: absolute;
+            z-index: 1;
+          }
+
+          #key {
+            position: absolute;
+            top: 0px;
+            left: 500px;
+            width: 3%;
+            z-index: 0;
+            opacity: 0.1;
+            transition: 1s ease-out 100ms;
+          }
+
+          #key:hover {
+            opacity: 0.8;
+            width: 3.2%;
+          }
+
+          #knock-door-area {
+            position: absolute;
+            width: 500px;
+            height: 680px;
+            right: 390px;
+            top: 150px;
+          }
+
+          #game-closing {
+            pointer-events: none;
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0;
+            z-index: 2;
+            transition: 1s ease-out 100ms;
+          }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+      <img src="images/vision.png" id="vision">
+      <div id="knock-door-area"></div>
+      <div id="game-closing"></div>
+      <div style='position: relative'>
+        <img src="images/key.png" id="key">
+      </div>
+    </body>
+    <script src="js/escape-scene-controller.js"></script>
+    <script>
+      document.onmousemove = function(e) {
+        var vision = document.querySelector('#vision');
+        vision.style.left = (e.clientX-4500) + 'px';
+        vision.style.top = (e.clientY-4500) + 'px';
+        console.log(`X: ${e.clientX}`);
+        console.log(`Y: ${e.clientY}`);
+    }
+    </script>
+</html>

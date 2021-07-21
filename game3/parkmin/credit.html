@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Escape Room</title>
+        <style>
+            html {
+                background-color: black;
+                animation-duration: 2s;
+                animation-name: slidein;
+                animation-fill-mode: forwards;
+            }
+
+            @keyframes slidein {
+                from {
+                    background-color: black;
+                }
+
+                to {
+                    background-color: white;
+                }
+            }
+
+            #logo { 
+                transition: 1s ease-out 100ms;
+                opacity: 0;
+                width: 50%;
+                margin-top: 10%;
+            }
+        </style>
+    </head>
+      
+      <body align="center">
+          <img id="logo" src="images/LOGO.png">
+      </body>
+      <script>
+          window.onload = function() {
+              setTimeout(() => {
+                  document.querySelector('#logo').style.opacity = 1;
+                  setTimeout(() => {
+                    document.location.href = "https://blog.daum.net/djyouth1318/";
+                  }, 3000)
+              }, 2500);
+          }
+      </script>
+</html>
