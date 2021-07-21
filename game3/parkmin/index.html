@@ -5,87 +5,22 @@
         <meta charset="utf-8">
         <title>Escape Room</title>
         <style>
-          body {
+          html {
             background-color: black;
           }
 
-          html { 
-            background: url(images/bg.jpg) no-repeat center center fixed; 
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-          }
-          .hidden-object {
-            position: absolute;
-            width:100px;
-            height: 100px;
-            opacity: 0;
-            transition: 1s ease-out 100ms
-          }
-
-          .hidden-object:hover {
-            opacity: 0.3;
-          }
-
-          .hidden-message {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-          }
-
-          #obj1 {
-            position: absolute;
-            top: 850px;
-            right: 100px;
-            width: 200px;
-            height: 200px;
-            background: url(images/location.png) no-repeat center center fixed; 
-          }
-
-          #obj2 {
-            position: absolute;
-            top: 100px;
-            right: 510px;
-            width: 200px;
-            height: 200px;
-            background: url(images/location.png) no-repeat center center fixed; 
-          }
-
-          #obj3 {
-            position: absolute;
-            top: 550px;
-            right: 750px;
-            width: 200px;
-            height: 200px;
-            background: url(images/lock.png) no-repeat center center fixed; 
-            background-color: black;
-          }
-
-          #message1 {
-            position: absolute;
-            top: 750px;
-            right: 350px;
+          p {
+            margin-top: 7%;
           }
         </style>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     </head>
     <body>
-      <div style='position: relative'>
-        <img src='images/location.png' id="obj1" class="hidden-object"/>
-      </div>
-
-      <div style='position: relative'>
-        <img src='images/location.png' id="obj2" class="hidden-object"/>
-      </div>
-
-      <div style='position: relative'>
-        <img src='images/lock.png' id="obj3" class="hidden-object"/>
-      </div>
-
-      <div style='position: relative'>
-        <div id="message1" class="hidden-message"></div>
-      </div>
+      <p align="middle">
+        <iframe width="1600" height="900" src="game.html" frameborder="4" scrolling="no">
+          이 브라우저는 지원되지 않습니다.
+        </iframe>
+      </p>
     </body>
-    <script src="js/object-controller.js"></script>
+
 </html>
