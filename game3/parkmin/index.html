@@ -35,24 +35,27 @@
           }
 
           #obj1 {
-            top: 1150px;
-            right: 150px;
+            position: absolute;
+            top: 850px;
+            right: 100px;
             width: 200px;
             height: 200px;
             background: url(images/location.png) no-repeat center center fixed; 
           }
 
           #obj2 {
-            top: 150px;
-            right: 730px;
+            position: absolute;
+            top: 100px;
+            right: 510px;
             width: 200px;
             height: 200px;
             background: url(images/location.png) no-repeat center center fixed; 
           }
 
           #obj3 {
-            top: 850px;
-            right: 1050px;
+            position: absolute;
+            top: 550px;
+            right: 750px;
             width: 200px;
             height: 200px;
             background: url(images/lock.png) no-repeat center center fixed; 
@@ -60,17 +63,29 @@
           }
 
           #message1 {
-            top: 1000px;
-            right: 600px;
+            position: absolute;
+            top: 750px;
+            right: 350px;
           }
         </style>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     </head>
     <body>
-      <img src='images/location.png' id="obj1" class="hidden-object"/>
-      <img src='images/location.png' id="obj2" class="hidden-object"/>
-      <img src='images/lock.png' id="obj3" class="hidden-object"/>
-      <div id="message1" class="hidden-message"></div>
+      <div style='position: relative'>
+        <img src='images/location.png' id="obj1" class="hidden-object"/>
+      </div>
+
+      <div style='position: relative'>
+        <img src='images/location.png' id="obj2" class="hidden-object"/>
+      </div>
+
+      <div style='position: relative'>
+        <img src='images/lock.png' id="obj3" class="hidden-object"/>
+      </div>
+
+      <div style='position: relative'>
+        <div id="message1" class="hidden-message"></div>
+      </div>
     </body>
     <script src="js/object-controller.js"></script>
 </html>
