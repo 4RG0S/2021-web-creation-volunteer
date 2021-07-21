@@ -66,25 +66,34 @@
             top: 550px;
             right: 200px;
           }
+
+          #clipboard {
+            position: absolute;
+              width: 50%;
+              height: 90%;
+              visibility: hidden;
+          }
+
         </style>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     </head>
     <body>
-      <div style='position: relative'>
-        <img src='images/location.png' id="obj1" class="hidden-object"/>
-      </div>
-
-      <div style='position: relative'>
-        <img src='images/location.png' id="obj2" class="hidden-object"/>
-      </div>
-
-      <div style='position: relative'>
-        <img src='images/lock.png' id="obj3" class="hidden-object"/>
-      </div>
-
-      <div style='position: relative'>
-        <div id="message1" class="hidden-message"></div>
-      </div>
+        <div style='position: relative'>
+            <img src='images/location.png' id="obj1" class="hidden-object"/>
+        </div>
+        
+        <div style='position: relative'>
+            <img src='images/location.png' id="obj2" class="hidden-object"/>
+        </div>
+        
+        <div style='position: relative'>
+            <img src='images/lock.png' id="obj3" class="hidden-object"/>
+        </div>
+        
+        <div style='position: relative'>
+            <div id="message1" class="hidden-message"></div>
+        </div>
+        <img src="images/clipboard.png" id="clipboard"/>
     </body>
     <script src="js/object-controller.js"></script>
 </html>
