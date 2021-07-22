@@ -1,7 +1,12 @@
 button {
 }
 #start-button-main {
-    
+    padding: 5px 20px;
+    margin-top: 30px;
+    border: 0px solid #000000;
+    border-radius: 3em;
+    background-color: #FAC76B;
+    font-weight: bold;
 }
 #start-button {
 
