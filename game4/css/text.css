@@ -1,9 +1,17 @@
 p {
     margin: 0px;
-
 }
 label {
-
+    text-align: center;
+    width: 100px;
+    height: 90px;
+    font-size: 18px;
+    border-radius: 10px;
+    color: #262626;
+    margin: 30px; 
+    margin-right: 100px;
+    padding-top: 5px;
+    box-shadow: 0 3px 2px #777777;
 }
 #message {
     position: absolute;
@@ -30,4 +38,36 @@ label {
     align-self: center;
     justify-items: center;
     width: fit-content;
+}
+#timer {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid #ADB9CA;
+    border-top-color: #7689A6;
+    padding-top: 10px;
+}
+#score {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid #FAD9CA;
+    border-top-color: #F7C3AB;
+    padding-top: 10px;
+}
+#score-space{
+    padding-left: 2%; 
+    flex-wrap: wrap;
+    display: flex;
+}
+#show-time{
+    background: #ADB9CA;
+}
+#show-score{
+    background: #FAD9CA;
+}
+
+#message{
+    left: 0; right: 0; bottom: 96%;
+    text-align: center;
 }
