@@ -13,10 +13,34 @@
         <link rel="stylesheet" href="./css/text.css">
     </head>
     <body>
-        <div id="start-page">
-            <!-- 시작 화면을 꾸며주세요! -->
-            <p>시작화면입니다</p>
-            <button id="start-button-main" onclick="gameManager.start()">start</button>
+        <div id="start-page" class='container-fluid'>
+            <h1 id="game-name">카드 짝 맞추기 게임</h1>
+            <div id="game-logo" class='row'>
+                <div onclick='' id='logo-card1' class='logo-card col-3 col-lg-1'>
+                    <img class='logo-card-img' src="./img/back_img.png" alt='카드'>
+                </div>
+                <div onclick='' id='logo-card2' class='logo-card col-3 col-lg-1'>
+                    <img class='logo-card-img' src="./img/img_4.png" alt='카드'>
+                </div>
+                <div onclick='' id='logo-card3' class='logo-card col-3 col-lg-1'>
+                    <img class='logo-card-img' src="./img/back_img.png" alt='카드'>
+                </div>
+                <div onclick='' id='logo-card4' class='logo-card col-3 col-lg-1'>
+                    <img class='logo-card-img' src="./img/img_2.png" alt='카드'>
+                </div>
+            </div>
+            <div id="rule-box-label">
+                <p>게임방법</p>
+            </div>
+            <div id="rule-box" class='row'>
+                <p id="rule">
+                    24장(12쌍)의 카드를 뒤집어, 같은 동물이 그려진 카드를 찾아주세요!
+                    <br>제한 시간은 1분 30초입니다.
+                    <br>카드 한 쌍을 맞출 때마다 +100점
+                    <br>모든 카드를 맞춘 경우, 남은 시간 * 5점의 점수가 추가로 부여됩니다.
+                </p>
+            </div> 
+            <button id="start-button-main" onclick="gameManager.start()">게임 시작 >></button>
         </div>
         <div id="main" class="container">
             <div id="game" class="row">

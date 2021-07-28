@@ -1,76 +1,55 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Escape Room</title>
-        <style>
-          body {
-            background-color: black;
-          }
 
-          html { 
-            background: url(images/bg.jpg) no-repeat center center fixed; 
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-          }
-          .hidden-object {
-            position: absolute;
-            width:100px;
-            height: 100px;
-            opacity: 0;
-            transition: 1s ease-out 100ms
-          }
+<head>
+  <meta charset="utf-8">
+  <title>Escape Room</title>
+  <style>
+    html {
+      background-color: black;
+      height: 100%;
+    }
 
-          .hidden-object:hover {
-            opacity: 0.3;
-          }
+    iframe {
+      width: 1600px;
+      height: 900px;
+      animation: blinkingBackground 10s infinite ease-in-out;
+    }
 
-          .hidden-message {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-          }
+    body {
+      text-align: center;
+    }
 
-          #obj1 {
-            top: 1150px;
-            right: 150px;
-            width: 200px;
-            height: 200px;
-            background: url(images/location.png) no-repeat center center fixed; 
-          }
+    @keyframes blinkingBackground {
+      0% {
+        opacity: 100%;
+      }
 
-          #obj2 {
-            top: 150px;
-            right: 730px;
-            width: 200px;
-            height: 200px;
-            background: url(images/location.png) no-repeat center center fixed; 
-          }
+      10% {
+        opacity: 0%;
+      }
 
-          #obj3 {
-            top: 850px;
-            right: 1050px;
-            width: 200px;
-            height: 200px;
-            background: url(images/lock.png) no-repeat center center fixed; 
-            background-color: black;
-          }
+      15% {
+        opacity: 100%;
+      }
+    }
 
-          #message1 {
-            top: 1000px;
-            right: 600px;
-          }
-        </style>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    </head>
-    <body>
-      <img src='images/location.png' id="obj1" class="hidden-object"/>
-      <img src='images/location.png' id="obj2" class="hidden-object"/>
-      <img src='images/lock.png' id="obj3" class="hidden-object"/>
-      <div id="message1" class="hidden-message"></div>
-    </body>
-    <script src="js/object-controller.js"></script>
+    video {
+      width: 0;
+      height: 0;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+  <video onloadstart="this.volume=0.3" id="bgm" src="audio/bgm.mp3" muted autoplay></video>
+  <iframe class="model" src="game.html" frameborder="0" scrolling="no">
+    이 브라우저는 지원되지 않습니다.
+  </iframe>
+  <button id="unmute-bgm">소리 켜기</button>
+</body>
+<script src="js/game-container-controller.js"></script>
+
 </html>
