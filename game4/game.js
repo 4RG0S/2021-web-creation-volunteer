@@ -319,9 +319,13 @@ var gameManager = (function(){
             if(volume==1){
                 bgm.volume = 0;
                 volume = 0;
+                $("#sound-on-button").css('display','none');
+                $("#sound-off-button").css('display','inline');              
             }else{
                 bgm.volume = 0.3;
-                volume = 1;
+                volume = 1;                              
+                $("#sound-off-button").css('display','none');
+                $("#sound-on-button").css('display','inline'); 
             }
 
         },
