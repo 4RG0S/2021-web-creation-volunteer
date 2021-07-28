@@ -1,7 +1,11 @@
+@font-face {
+    font-family: 'GaramYeonGGot';
+    src: url('../font/나눔손글씨 가람연꽃.ttf');
+    
+}
 body {
     margin: 0px;
     background-image: url("https://images.unsplash.com/photo-1534289907116-888fe70c4806?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
-    
 }
 .container{
     background-color: whitesmoke;
@@ -33,10 +37,11 @@ span{
     font-weight: bold;
 }
 p{
-    font-size: medium;
+    font-size: x-large;
     margin: 0px;
 }
 p, h1{
+    font-family: 'GaramYeonGGot', bold;
     display: inline-block; 
 
     -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
