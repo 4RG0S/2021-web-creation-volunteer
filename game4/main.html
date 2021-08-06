@@ -45,22 +45,22 @@
         <div id="main" class="container">
             <div id="game" class="row">
                 <div id='btn-space' class='col-12 col-md-3'>
-                    <button id="start-button" onclick="gameManager.startGame()">start</button>
+                    <button id="start-button" onclick="gameManager.startGame()">다시시작</button>
                     <br>
-                    <button id="pause-button" onclick="gameManager.pauseGame()">pause</button>
-                    <button id="resume-button" onclick="gameManager.resumeGame()">resume</button>
+                    <button id="pause-button" onclick="gameManager.pauseGame()">일시정지</button>
+                    <button id="resume-button" onclick="gameManager.resumeGame()">이어하기</button>
                     <br>
-                    <button id="sound-button" onclick='gameManager.sound()'>sound</button>
+                    <button id="sound-on-button" onclick='gameManager.sound()'><img src="./img/img_sound_on.png" id="sound_on_img"></button>
+                    <button id="sound-off-button" onclick='gameManager.sound()'><img src="./img/img_sound_off.png" id="sound_off_img"></button>                   
                 </div>
                 <div id="borad-space" class='col-12 col-md-6'>
+                    <p id="message"></p>
                     <div id="board"></div>
                 </div>
                 <div id="score-space" class='col-12 col-md-3'>
-                    <label>TIMER</label><p id = "timer">-:--</p>
-                    </br>
-                    <p id="message"></p>
-                    </br>
-                    <label>SCORE</label><p id = "score">0</p>
+                    <label id="show-time">TIMER<p id = "timer">-:--</p></label>                                 
+                   	</br>
+                    <label id="show-score">SCORE<p id = "score">0</p></label>
                 </div>
             </div>
         </div>

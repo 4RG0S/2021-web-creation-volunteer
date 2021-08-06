@@ -1,6 +1,7 @@
 html, body {
     background-color: #F4F1EC;
     height: 100%;
+    font-size: 18px;
 }
 #main {
     height: 100%;
@@ -40,4 +41,5 @@ div {
 #rule-box {
     justify-content: center;
     align-content: center;
+    font-size: 15px;
 }
