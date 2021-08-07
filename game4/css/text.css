@@ -31,7 +31,7 @@ label {
     border-radius: 1em;
 }
 #rule {
-    font-size: 15px;
+    font-size: 18px;
     background-color: #F8F7F5;
     border: 3px dashed #8A8885;
     border-radius: 1em;
@@ -62,13 +62,19 @@ label {
     display: flex;
 }
 #show-time{
+    font-size: 20px;
+	font-weight: bold;
     background: #ADB9CA;
 }
 #show-score{
+    font-size: 20px;
+	font-weight: bold;
     background: #FAD9CA;
 }
 
 #message{
-    left: 0; right: 0; bottom: 96%;
+    left: 0; right: 0; bottom: 100%;
+    font-size: 25px;
+    font-weight: bold;
     text-align: center;
 }

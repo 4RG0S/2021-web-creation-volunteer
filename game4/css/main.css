@@ -1,7 +1,12 @@
+@font-face {
+    font-family: 'NanumBarunpenR';
+    src: url('../font/NanumBarunpenR.ttf');   
+}
 html, body {
+    font-family: 'NanumBarunpenR';
     background-color: #F4F1EC;
     height: 100%;
-    font-size: 18px;
+    font-size: 20px;
 }
 #main {
     height: 100%;

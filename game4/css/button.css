@@ -17,7 +17,8 @@ button {
 	height: 45px;
 	border-width: 0px;
 	border-radius: 1em;
-	font-size: 18px;
+	font-size: 20px;
+	font-weight: bold;
  	background: #fde199;
  	margin :5% auto;
  	box-shadow: 0 3px 2px #777777;
