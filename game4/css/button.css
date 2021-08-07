@@ -5,7 +5,7 @@ button {
 	position: relative;
     top: -5%;
     padding: 5px 20px;
-    margin :5% auto;
+    margin :40px auto;
     border: 0px solid #000000;
     border-radius: 3em;
     background: #fde199;
@@ -23,9 +23,12 @@ button {
  	margin :5% auto;
  	box-shadow: 0 3px 2px #777777;
 }
-#start-button:hover, #pause-button:hover, #resume-button:hover, #sound-on-button:hover, #sound-off-button:hover, #start-button-main:hover{
+#start-button:hover, #pause-button:hover, #resume-button:hover, #sound-on-button:hover, #sound-off-button:hover {
 	background: #fcd574;
 	margin :5% auto;
+}
+#start-button-main:hover{
+	background: #fcd574;
 }
 #pause-button {
     display: inline;

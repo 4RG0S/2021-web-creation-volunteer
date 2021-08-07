@@ -8,8 +8,6 @@ label {
     font-size: 18px;
     border-radius: 10px;
     color: #262626;
-    margin: 30px; 
-    margin-right: 100px;
     padding-top: 5px;
     box-shadow: 0 3px 2px #777777;
 }
@@ -58,15 +56,26 @@ label {
 }
 #score-space{
     padding-left: 2%; 
+    padding-right: 8%;
     flex-wrap: wrap;
     display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.score-space-div{
+    text-align: center;
+    padding: 8% 0px;
 }
 #show-time{
+    position: relative;
+    left: 3%;
     font-size: 20px;
 	font-weight: bold;
     background: #ADB9CA;
 }
 #show-score{
+    position: relative;
+    left: 4%;
     font-size: 20px;
 	font-weight: bold;
     background: #FAD9CA;
