@@ -1,13 +1,12 @@
 body {
-  background: #F5F3F4;
+  background: #f1d1ff;
   margin: 0;
-  padding: 10px;
+  padding: 10% 0%;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
 h1 {
-  color: #4c4c4c;
   font-weight: 600;
 }
 
@@ -16,20 +15,30 @@ ul{
   list-style: none;
 }
 
-li{
-  width: 23%;
-  display: inline-block;
-  border: 5px solid black;
-  cursor:pointer
-}
-
 .gbox {
-  margin: 0% 25%;
+  margin: 0% 10%;
+  height: 100%;
   background-color: white;
-  border: 5px solid black;
+  border: 5px solid purple;
   border-radius: 30px;
 }
 
+.result p, .start p{
+  font-size: 30px;
+}
+
+li, #next, .start_btn{
+  width: 25%;
+  margin: 5px 10px;
+  display: inline-block;
+  border: 5px solid #f1d1ff;
+  border-radius: 10px;
+  background: #f1d1ff;
+  font-size: 20px;
+  cursor:pointer;
+}
+
 .start, .problem, .correct, .result{
-  height: 400px;
+  margin: 0;
+  padding: 0;
 }
