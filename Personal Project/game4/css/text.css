@@ -1,0 +1,89 @@
+p {
+    margin: 0px;
+}
+label {
+    text-align: center;
+    width: 100px;
+    height: 90px;
+    font-size: 18px;
+    border-radius: 10px;
+    color: #262626;
+    padding-top: 5px;
+    box-shadow: 0 3px 2px #777777;
+}
+#message {
+    position: absolute;
+}
+#game-name {
+    font-weight: bolder;
+    margin-bottom: 7vh;
+}
+#rule-box-label {
+    position: relative;
+    top: 20px;
+    z-index: 4;
+    font-weight: bold;
+    background-color: #ffffff;
+    padding: 3px 15px;
+    border: 3px solid #8A8885;
+    border-radius: 1em;
+}
+#rule {
+    font-size: 18px;
+    background-color: #F8F7F5;
+    border: 3px dashed #8A8885;
+    border-radius: 1em;
+    padding: 1.5em 5em;
+    align-self: center;
+    justify-items: center;
+    width: fit-content;
+}
+#timer {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid #ADB9CA;
+    border-top-color: #7689A6;
+    padding-top: 10px;
+}
+#score {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid #FAD9CA;
+    border-top-color: #F7C3AB;
+    padding-top: 10px;
+}
+#score-space{
+    padding-left: 2%; 
+    padding-right: 8%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.score-space-div{
+    text-align: center;
+    padding: 8% 0px;
+}
+#show-time{
+    position: relative;
+    left: 3%;
+    font-size: 20px;
+	font-weight: bold;
+    background: #ADB9CA;
+}
+#show-score{
+    position: relative;
+    left: 4%;
+    font-size: 20px;
+	font-weight: bold;
+    background: #FAD9CA;
+}
+
+#message{
+    left: 0; right: 0; bottom: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}

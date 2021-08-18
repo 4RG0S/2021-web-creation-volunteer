@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!--link rel="stylesheet" href="../resources/css/bootstrap.css"-->
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div class="container">
+        <button type="button" id="unmuteButton" class="btn btn-primary">unmute</button>
+        <button type="button" id="scaryUnmuteButton" class="btn btn-primary">unmute(무서움)</button>
+        <p style="font-size: xx-large;">
+            <strong>쾅!!!!</strong>
+        </p><br><br>
+        <div id="start_content" style="visibility:hidden;">
+        <p style="font-size: large;">앗! 다목적실에 들어왔다가 갑자기 문이 닫혀버렸다!<br>
+            불도 꺼지고 아무것도 안보인다!! 으악!!!!!!!!<br>
+            30분 뒤에 친구랑 약속인데...어떡하지...진짜 큰일났다..!!<br>
+            <br>
+            (덜컹덜컹) 문을 열어보려 했지만...문도 잠긴 것 같다! 문고리에 <strong>열쇠구멍이 있는 자물쇠</strong>가 있다.<br>
+            급하게 핸드폰을 찾아 도움을 요청하려 했지만, 핸드폰은 정수기 위에 놓고 온 게 생각났다...이런..<br>
+            처음이라 비상구가 어딘지도 모르겠고...<br>
+            <br>
+            음....자물쇠라.....그럼 열쇠도 어딘가에 있겠지?<br>
+            와 진짜 나 돈 주고 하는 방탈출도 안해봤는데, 이걸 오늘 해보네.....후하 해보자!!<br>
+        </p>
+        <br>
+        <a href="./bookGame.html" role="button" class="btn btn-success btn-lg">방탈출 시작하기</a>
+        </div>
+    </div>
+    
+    <video id="video" src="../audio/door-closing(cut).mp3" muted autoplay></video>
+    <video id="scaryVideo" src="../audio/door+horror.mp3" muted autoplay></video>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+</body>
+</html>
