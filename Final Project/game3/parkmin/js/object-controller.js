@@ -30,9 +30,11 @@ obj1.onclick = function () {
 
     alert('YWCA 직원에 대한 소개 책자이다. 잠긴 PC에 대한 힌트가 있을 것 같다.');
     obj1.style.opacity = 0.5;
-
-    var clipboard = document.querySelector('#clipboard');
-    clipboard.style.visibility = "visible";
+    
+    location.href="../h01010/html/bookGame.html";
+    
+    //var clipboard = document.querySelector('#clipboard');
+    //clipboard.style.visibility = "visible";
 }
 
 
