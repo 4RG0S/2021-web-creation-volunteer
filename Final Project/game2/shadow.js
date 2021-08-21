@@ -1,3 +1,27 @@
+// 문제이름, 선택지
+const data = [
+    {
+        "name": "태권도",
+        "example": ["태권도","유도","복싱","검도"]
+    },
+    {
+        "name": "발레",
+        "example": ["스포츠댄스","발레","벨리댄스","피겨스케이팅"]
+    },
+    {
+        "name": "탁구",
+        "example": ["배드민턴","테니스","볼링","탁구"]
+    },
+    {
+        "name": "BTS-다이너마이트",
+        "example": ["오마이걸-바나나알러지원숭이","BTS-다이너마이트","비-깡","소녀시대-Gee"]
+    },
+    {
+        "name": "여자친구-밤",
+        "example": ["여자친구-시간을달려서","여자아이들-한","여자친구-밤","에이핑크-1도없어"]
+    }
+]
+
 $(document).ready(function(){
     // 점수, 현재 문제 번호, 문제를 담는 배열
     var score, count, problems;    
@@ -9,16 +33,15 @@ $(document).ready(function(){
         score = 0;
         count = 0;
         problems = Array();
-
+        
         // json파일에서 문제를 가져와서 임의로 5개 뽑기
-        $.getJSON('./data.json', function(data){
-            for (i = 0; i < 5; i++) {
-                random = Math.floor(Math.random() * data.length);
-                problems.push(data[random]);
-                data.splice(random, 1);
-            }
-            setProblem();
-        });
+        const copy = JSON.parse(JSON.stringify(data));
+        for (i = 0; i < 5; i++) {
+            random = Math.floor(Math.random() * copy.length);
+            problems.push(copy[random]);
+            copy.splice(random, 1);
+        }
+        setProblem();
         $('#score').text(score+'점');
         $('.start, .result').hide();
         $('.problem, .score').show();
