@@ -28,7 +28,7 @@ obj1.onclick = function () {
     audio.volume = 0.5;
     audio.play();
 
-    alert('YWCA 직원에 대한 소개 책자이다. 잠긴 PC에 대한 힌트가 있을 것 같다.');
+    alert('대흥동 문화의 집 직원에 대한 소개 책자이다. \n잠긴 PC에 대한 힌트가 있을 것 같다.');
     obj1.style.opacity = 0.5;
     
     location.href="../h01010/html/bookGame.html";
@@ -49,7 +49,7 @@ obj2.onclick = function () {
 
 obj3.onclick = function () {
     var inputString = prompt('PC를 이용하려면 암호를 입력하세요.', '');
-    if (inputString == "YWCA") {
+    if (inputString == "3922") {
         var audio = new Audio('audio/pc-start.wav');
         audio.volume = 0.5;
         audio.play();
