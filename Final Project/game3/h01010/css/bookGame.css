@@ -20,6 +20,7 @@ body {
     margin-bottom: 100px;
 }
 #introdunctionImg{
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }

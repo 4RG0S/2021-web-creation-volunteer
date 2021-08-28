@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Escape</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/pcGame.css">
+</head>
+
+<body>
+
+    <button style="position: relative; top:50px; left: 90px;" onclick="history.back()" type="button"
+        class="btn btn-outline-secondary">
+        돌아가기
+    </button>
+    <div class="container" style="text-align : center;">
+        <img id="pcGameImg" src="../images/pc_game.png">
+        <button type="button" class="btn btn-success btn-lg" data-toggle="modal"
+            data-target="#exampleModal">
+            비밀번호 누르기
+        </button>
+    </div>
+
+    //Modal
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">암호를 입력하세요</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div id="resultAlert" style="display:none;" class="alert alert-primary" role="alert"></div>
+                        <input id="authKey" size="40" type="text" placeholder="해독한 암호를 입력하세요">
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="modalClose()" type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                        <button onclick="submitAuthKey()" type="button" class="btn btn-primary">암호 입력</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/bookGame.js"></script>
+</body>
+
+</html>

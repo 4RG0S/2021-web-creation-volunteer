@@ -53,10 +53,9 @@ obj3.onclick = function () {
         var audio = new Audio('audio/pc-start.wav');
         audio.volume = 0.5;
         audio.play();
-        alert('DEBUG :: 다음 단계 게임 진행')
         obj3.style.opacity = 0.5;
-        if (confirm('손전등 획득! 게임 성공시 탈출 화면으로 넘어가기?')) {
-            document.location = "escape.html";
+        if (confirm('PC의 전원이 켜지고 어떤 창이 떴다..')) {
+            document.location = "../h01010/html/pcScreenGame.html";
         }
 
     } else {

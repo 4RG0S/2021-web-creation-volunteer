@@ -1,0 +1,15 @@
+body {
+    margin: 0px;
+    background-image: url("../images/pc_screen.jpeg");
+    background-size: 100%;
+}
+.container{
+    position: relative;
+    top: 100px;
+    width: 70%;
+    height: 60%;
+    padding: 10px 150px 10px 150px;
+}
+#pcGameImg{
+    max-width: 100%;
+}
