@@ -23,7 +23,8 @@ body {
   img{
     min-width: 500px;
     min-height: auto;
-    max-width: 1000px;
+    max-width: 750px;
+    max-height: 300px;
   }
   
   .gbox {
@@ -63,3 +64,6 @@ body {
     padding: 0;
   }
   
+  ul{
+    margin: 20px;
+  }
