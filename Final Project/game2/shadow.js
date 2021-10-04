@@ -85,4 +85,14 @@ $(document).ready(function(){
             o["example"].splice(random, 1);
         }
     }
+
+    // index.html로 돌아간다.
+    $('#main').click(function(e){
+        location.href="../main/index.html";
+    })
+
+    // 화면을 reload하여 첫화면으로 돌아간다.
+    $('#home').click(function(e){
+        location.reload();
+    })
 });
