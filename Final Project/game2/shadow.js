@@ -43,6 +43,62 @@ const data = [
     {
         "name": "나비",
         "example": ["나비","나방","벌","잠자리"]
+    },
+    {
+        "name": "곰",
+        "example": ["코끼리","곰","개구리","개미핥기"]
+    },
+    {
+        "name": "총",
+        "example": ["라이터","총","숟가락","새"]
+    },
+    {
+        "name": "저울",
+        "example": ["저울","그릇","장난감","얼굴"]
+    },
+    {
+        "name": "재봉틀",
+        "example": ["재봉틀","팔","주전자","로봇"]
+    },
+    {
+        "name": "장미",
+        "example": ["장미","무궁화","민들레","개나리"]
+    },
+    {
+        "name": "인어",
+        "example": ["인어","물고기","사람","노인"]
+    },
+    {
+        "name": "에펠탑",
+        "example": ["에펠탑","피라미드","남산타워","바벨탑"]
+    },
+    {
+        "name": "소",
+        "example": ["소","코끼리","염소","유니콘"]
+    },
+    {
+        "name": "마녀",
+        "example": ["인어","마녀","마법사","귀신"]
+    },
+    {
+        "name": "새",
+        "example": ["새","사자","강아지","공룡"]
+    },
+    {
+        "name": "비행기",
+        "example": ["비행기","로켓","미사일","새"]
+    },
+    {
+        "name": "사람",
+        "example": ["사람","오크","오징어","요정"]
+    },
+    {
+        "name": "날개",
+        "example": ["날개","팔","다리","새"]
+    },
+    {
+        "name": "군인",
+        "example": ["군인","의사","프로그래머","교수"]
     }
 ]
 
@@ -58,9 +114,9 @@ $(document).ready(function(){
         count = 0;
         problems = Array();
         
-        // json파일에서 문제를 가져와서 임의로 5개 뽑기
+        // json파일에서 문제를 가져와서 임의로 10개 뽑기
         const copy = JSON.parse(JSON.stringify(data));
-        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 10; i++) {
             random = Math.floor(Math.random() * copy.length);
             problems.push(copy[random]);
             copy.splice(random, 1);
@@ -73,30 +129,33 @@ $(document).ready(function(){
 
     // 답을 눌렀을 때 실행되는 함수
     // 정답을 누르면 정답을 맞췄다는 문구를 출력한다.
-    $('#answers li').click(function(e){      
-        if($(e.target).text() === problems[count]["name"]){
-            score += 20;
-            $('#o').show();
-        }else{
-            $('#x').show();
-        }
-        count++;
-        $('#score').text(score+'점');
-        $('.problem').hide();
-        $('.correct').show();
-    });
-
-    // 다음 문제를 눌렀을 때 실행되는 문제당 결과화면
-    // 마지막 문제이면 최종 결과화면을 출력한다.
-    $('#next').click(function(e){
-        $('#o, #x, .correct').hide();
-
-        if(count == 5){
+    // 마지막 문제면 최종 결과 창을 띄운다.
+    $('#answers li').click(function(e){
+        if(++count == 10){
+            if($(e.target).text() === problems[count-1]["name"]){
+                score += 10;
+                $('#score').text(score+'점');
+            }
+            $('.problem').hide();
             $('.result').show();
         }else{
+            if($(e.target).text() === problems[count-1]["name"]){
+                score += 10;
+                $('#score').text(score+'점');
+                $('#o').show();
+            }else{
+                $('#x').show();
+            }
             setProblem();
-            $('.problem').show();
+            $('.problem').hide();
+            $('.correct').show();
         }
+    });
+
+    // 다음 문제를 눌렀을 때 다음 문제가 띄어진다.
+    $('#next').click(function(e){
+        $('#o, #x, .correct').hide();
+        $('.problem').show();
     });
 
     // 화면에 새로운 문제를 출력한다. 선택지또한 랜덤으로 나오게 한다.
