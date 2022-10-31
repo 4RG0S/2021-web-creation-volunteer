@@ -1,10 +1,12 @@
 from flask import Flask, jsonify
 from flask_restful import Resource, Api, reqparse
+from flask_cors import CORS
 from database import Database
 
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 database = Database()
 
@@ -15,14 +17,12 @@ class SetScore(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument('name', type=str)
             parser.add_argument('score', type=int)
-            # parser.add_argument('sort', type=str)
             parser.add_argument('unit', type=str)
             parser.add_argument('gameId', type=int)
             args = parser.parse_args()
 
             _user_name = args['name']
             _user_score = args['score']
-            # _sort_type = args['sort']  # desc or asc
             _score_unit = args['unit']
             _game_id = args['gameId']
 
