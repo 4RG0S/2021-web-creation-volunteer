@@ -618,5 +618,5 @@ function makeMaze() {
 }
 
 function goMain() {
-  location.href = "../main/index.html"
+  location.href = "../index.html"
 }
