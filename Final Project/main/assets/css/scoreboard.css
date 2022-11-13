@@ -76,3 +76,8 @@ button {
   text-transform: uppercase;
   white-space: nowrap;
 }
+
+.rank_img {
+  width: 40px;
+  height: 40px;
+}
