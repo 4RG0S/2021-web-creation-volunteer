@@ -50,12 +50,42 @@ class Database:
         games_info = [
             {
                 'gameId': 0,
-                'gameName': "asdf",
-                'sortType': "asc"
+                'gameName': "Card Matching",
+                'sortType': "desc"
             },
             {
                 'gameId': 1,
-                'gameName': "FlappyBird",
+                'gameName': "Shadow Game",
+                'sortType': "desc"
+            },
+            {
+                'gameId': 2,
+                'gameName': "With Book",
+                'sortType': "desc"
+            },
+            {
+                'gameId': 3,
+                'gameName': "Maze Easy",
+                'sortType': "desc"
+            },
+            {
+                'gameId': 4,
+                'gameName': "Maze Medium",
+                'sortType': "desc"
+            },
+            {
+                'gameId': 5,
+                'gameName': "Maze Hard",
+                'sortType': "desc"
+            },
+            {
+                'gameId': 6,
+                'gameName': "Maze Extreme",
+                'sortType': "desc"
+            },
+            {
+                'gameId': 7,
+                'gameName': "Flappy Bird",
                 'sortType': "desc"
             },
         ]
@@ -87,12 +117,14 @@ class Database:
                 sort_type = info['sortType']
                 break
         if sort_type == 'desc':
-            stmt = select(self.score).where(self.score.c.gameId == game_id).order_by(desc(self.score.c.score)).limit(limit)
+            stmt = select(self.score).where(self.score.c.gameId == game_id).order_by(desc(self.score.c.score)).limit(
+                limit)
         elif sort_type == 'asc':
-            stmt = select(self.score).where(self.score.c.gameId == game_id).order_by(asc(self.score.c.score)).limit(limit)
+            stmt = select(self.score).where(self.score.c.gameId == game_id).order_by(asc(self.score.c.score)).limit(
+                limit)
         else:
             stmt = None
-            pass  # fix it. raise error here.
+            pass  # TODO fix it. raise error here.
         result = self.db.execute(stmt)
         score_set = [dict(row) for row in result]
         return score_set
@@ -103,7 +135,8 @@ class Database:
         self.db.commit()
 
     def update_game_info(self, game_id, game_name, sort_type):
-        stmt = update(self.game_info).where(self.game_info.c.gameId == game_id).values(gameName=game_name, sortType=sort_type)
+        stmt = update(self.game_info).where(self.game_info.c.gameId == game_id).values(gameName=game_name,
+                                                                                       sortType=sort_type)
         self.db.execute(stmt)
         self.db.commit()
 
