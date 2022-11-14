@@ -1,5 +1,5 @@
 async function recordScore(name, score, gameId) {
-  let url = "http://10.10.0.71:8800/set_score"
+  let url = "http://localhost:8800/set_score"
   const option = {
     method: "POST",
     headers: {

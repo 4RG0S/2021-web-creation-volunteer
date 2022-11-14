@@ -65,7 +65,7 @@ async function init() {
 }
 
 async function getScore(index) {
-  let url = "http://10.10.0.71:8800/get_score"
+  let url = "http://localhost:8800/get_score"
   const option = {
     method: "POST",
     headers: {
@@ -83,4 +83,18 @@ async function getScore(index) {
   return res
 }
 
+function getMazeScore() {
+  let diffArr = ["Easy", "Medium", "Hard", "Extreme"]
+  let diff = selection.value
+  let mazetb = document.getElementById("maze")
+  mazetb.replaceChildren()
+  let rank = getScore(diffArr.indexOf(diff) + 3)
+  for (let i = 0; i < rank.length; i++) {
+    let data = score[i]
+    tb.append(makeRow(j + 1, data.name, data.score))
+  }
+}
+
 init()
+let selection = document.getElementById("difficulty")
+selection.addEventListener("change", getMazeScore)
