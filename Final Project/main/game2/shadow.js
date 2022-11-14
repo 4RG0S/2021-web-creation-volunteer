@@ -1,4 +1,5 @@
 // 문제이름, 선택지
+let name = ""
 const data = [
   {
     name: "태권도",
@@ -115,13 +116,14 @@ const data = [
 $(document).ready(function () {
   // 점수, 현재 문제 번호, 문제를 담는 배열
   var score, count, problems
-
+  let name = ""
   $(".start").show()
 
   // 게임 시작 및 다시 시작하기를 눌렀을 때 시작되는 함수
   $(".start_btn").click(function () {
     score = 0
     count = 0
+    name = prompt("이름을 입력하세요")
     problems = Array()
 
     // json파일에서 문제를 가져와서 임의로 10개 뽑기
@@ -145,6 +147,7 @@ $(document).ready(function () {
       if ($(e.target).text() === problems[count - 1]["name"]) {
         score += 10
         $("#score").text(score + "점")
+        recordScore(name, score, 1)
       }
       $(".problem").hide()
       $(".result").show()

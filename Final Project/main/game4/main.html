@@ -1,77 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="kor">
-    <head>
-        <meta charset="utf-8">
-        <title>기억력 게임</title>        <!-- 페이지 명 -->
+  <head>
+    <meta charset="utf-8" />
+    <title>기억력 게임</title>
+    <!-- 페이지 명 -->
 
-        <!-- CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/main.css">
-        <link rel="stylesheet" href="./css/borad.css">
-        <link rel="stylesheet" href="./css/card.css">
-        <link rel="stylesheet" href="./css/button.css">
-        <link rel="stylesheet" href="./css/text.css">
-    </head>
-    <body>
-        <div id="start-page" class='container-fluid'>
-            <h1 id="game-name">카드 짝 맞추기 게임</h1>
-            <div id="game-logo" class='row'>
-                <div onclick='' id='logo-card1' class='logo-card col-3 col-lg-1'>
-                    <img class='logo-card-img' src="./img/back_img.png" alt='카드'>
-                </div>
-                <div onclick='' id='logo-card2' class='logo-card col-3 col-lg-1'>
-                    <img class='logo-card-img' src="./img/img_4.png" alt='카드'>
-                </div>
-                <div onclick='' id='logo-card3' class='logo-card col-3 col-lg-1'>
-                    <img class='logo-card-img' src="./img/back_img.png" alt='카드'>
-                </div>
-                <div onclick='' id='logo-card4' class='logo-card col-3 col-lg-1'>
-                    <img class='logo-card-img' src="./img/img_2.png" alt='카드'>
-                </div>
-            </div>
-            <div id="rule-box-label">
-                <p>게임방법</p>
-            </div>
-            <div id="rule-box" class='row'>
-                <p id="rule">
-                    24장(12쌍)의 카드를 뒤집어, 같은 동물이 그려진 카드를 찾아주세요!
-                    <br>제한 시간은 1분 30초입니다.
-                    <br>카드 한 쌍을 맞출 때마다 +100점
-                    <br>모든 카드를 맞춘 경우, 남은 시간 * 5점의 점수가 추가로 부여됩니다.
-                </p>
-            </div> 
-            <button id="start-button-main" onclick="gameManager.start()">게임 시작 >></button>
+    <!-- CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/borad.css" />
+    <link rel="stylesheet" href="./css/card.css" />
+    <link rel="stylesheet" href="./css/button.css" />
+    <link rel="stylesheet" href="./css/text.css" />
+  </head>
+  <body>
+    <div id="start-page" class="container-fluid">
+      <h1 id="game-name">카드 짝 맞추기 게임</h1>
+      <div id="game-logo" class="row">
+        <div onclick="" id="logo-card1" class="logo-card col-3 col-lg-1">
+          <img class="logo-card-img" src="./img/back_img.png" alt="카드" />
         </div>
-        <div id="main" class="container">
-            <div id="game" class="row">
-                <div id='btn-space' class='col-12 col-md-3'>
-                    <button id="start-button" onclick="gameManager.startGame()">다시시작</button>
-                    <br>
-                    <button id="pause-button" onclick="gameManager.pauseGame()">일시정지</button>
-                    <button id="resume-button" onclick="gameManager.resumeGame()">이어하기</button>
-                    <br>
-                    <button id="sound-on-button" onclick='gameManager.sound()'><img src="./img/img_sound_on.png" id="sound_on_img"></button>
-                    <button id="sound-off-button" onclick='gameManager.sound()'><img src="./img/img_sound_off.png" id="sound_off_img"></button>                   
-                </div>
-                <div id="borad-space" class='col-12 col-md-6'>
-                    <p id="message"></p>
-                    <div id="board"></div>
-                </div>
-                <div id="score-space" class='col-12 col-md-3'>
-                    <div class='col-6 col-md-12 score-space-div'>
-                        <label id="show-time">TIMER<p id = "timer">-:--</p></label>                                 
-                    </div>
-                   	<div class='col-6 col-md-12 score-space-div'>
-                        <label id="show-score">SCORE<p id = "score">0</p></label>
-                    </div>
-                </div>
-            </div>
+        <div onclick="" id="logo-card2" class="logo-card col-3 col-lg-1">
+          <img class="logo-card-img" src="./img/img_4.png" alt="카드" />
         </div>
-        
+        <div onclick="" id="logo-card3" class="logo-card col-3 col-lg-1">
+          <img class="logo-card-img" src="./img/back_img.png" alt="카드" />
+        </div>
+        <div onclick="" id="logo-card4" class="logo-card col-3 col-lg-1">
+          <img class="logo-card-img" src="./img/img_2.png" alt="카드" />
+        </div>
+      </div>
+      <div id="rule-box-label">
+        <p>게임방법</p>
+      </div>
+      <div id="rule-box" class="row">
+        <p id="rule">
+          24장(12쌍)의 카드를 뒤집어, 같은 동물이 그려진 카드를 찾아주세요!
+          <br />제한 시간은 1분 30초입니다. <br />카드 한 쌍을 맞출 때마다
+          +100점 <br />모든 카드를 맞춘 경우, 남은 시간 * 5점의 점수가 추가로
+          부여됩니다.
+        </p>
+      </div>
+      <button id="start-button-main" onclick="gameManager.start()">
+        게임 시작 >>
+      </button>
+    </div>
+    <div id="main" class="container">
+      <div id="game" class="row">
+        <div id="btn-space" class="col-12 col-md-3">
+          <button id="start-button" onclick="gameManager.startGame()">
+            다시시작
+          </button>
+          <br />
+          <button id="pause-button" onclick="gameManager.pauseGame()">
+            일시정지
+          </button>
+          <button id="resume-button" onclick="gameManager.resumeGame()">
+            이어하기
+          </button>
+          <br />
+          <button id="sound-on-button" onclick="gameManager.sound()">
+            <img src="./img/img_sound_on.png" id="sound_on_img" />
+          </button>
+          <button id="sound-off-button" onclick="gameManager.sound()">
+            <img src="./img/img_sound_off.png" id="sound_off_img" />
+          </button>
+        </div>
+        <div id="borad-space" class="col-12 col-md-6">
+          <p id="message"></p>
+          <div id="board"></div>
+        </div>
+        <div id="score-space" class="col-12 col-md-3">
+          <div class="col-6 col-md-12 score-space-div">
+            <label id="show-time"
+              >TIMER
+              <p id="timer">-:--</p></label
+            >
+          </div>
+          <div class="col-6 col-md-12 score-space-div">
+            <label id="show-score"
+              >SCORE
+              <p id="score">0</p></label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <!-- JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script type="text/javascript" src="./game.js"></script>
-    </body>
+    <!-- JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../assets/js/recordScore.js"></script>
+    <script type="text/javascript" src="./game.js"></script>
+  </body>
 </html>
