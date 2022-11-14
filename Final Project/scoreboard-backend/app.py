@@ -23,7 +23,7 @@ class SetScore(Resource):
 
             _user_name = args['name']
             _user_score = args['score']
-            _score_unit = args['unit']
+            _score_unit = args['unit'] if args['unit'] else "점"
             _game_id = args['gameId']
 
             database.add_score(name=_user_name, score=_user_score, unit=_score_unit, game_id=_game_id)
@@ -58,7 +58,10 @@ class GetScore(Resource):
 
             print("score_set:", score_set)
 
-            return jsonify(score_set)
+            if len(score_set) < 5:
+                return jsonify(score_set)
+            else:
+                return jsonify(score_set[:5])
 
         except Exception as e:
             return {'error': str(e)}
