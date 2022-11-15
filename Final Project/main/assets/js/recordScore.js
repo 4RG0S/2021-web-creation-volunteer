@@ -1,5 +1,5 @@
 async function recordScore(name, score, gameId) {
-  let url = "http://localhost:8800/set_score"
+  let url = "https://culture.argos.or.kr:8800/set_score"
   const option = {
     method: "POST",
     headers: {
