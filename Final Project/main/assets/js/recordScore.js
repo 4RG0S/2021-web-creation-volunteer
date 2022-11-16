@@ -4,7 +4,6 @@ async function recordScore(name, score, gameId) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...headers,
     },
     body: {
       name,
