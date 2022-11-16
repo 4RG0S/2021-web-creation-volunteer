@@ -65,7 +65,7 @@ async function init() {
 }
 
 async function getScore(index) {
-  let url = "https://culture.argos.or.kr:8800/get_score"
+  let url = "https://culture.argos.or.kr/get_score"
   const option = {
     method: "POST",
     headers: {
