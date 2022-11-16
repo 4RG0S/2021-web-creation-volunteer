@@ -83,15 +83,16 @@ async function getScore(index) {
   return res
 }
 
-function getMazeScore() {
+async function getMazeScore() {
+  console.log("getMaze")
   let diffArr = ["Easy", "Medium", "Hard", "Extreme"]
   let diff = selection.value
   let mazetb = document.getElementById("maze")
   mazetb.replaceChildren()
-  let rank = getScore(diffArr.indexOf(diff) + 3)
+  let rank = await getScore(diffArr.indexOf(diff) + 3)
   for (let i = 0; i < rank.length; i++) {
-    let data = score[i]
-    tb.append(makeRow(j + 1, data.name, data.score))
+    let data = rank[i]
+    mazetb.append(makeRow(i + 1, data.name, data.score))
   }
 }
 

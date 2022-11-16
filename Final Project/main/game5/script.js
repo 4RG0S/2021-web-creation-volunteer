@@ -1,4 +1,4 @@
-var e
+var eName
 let myName
 
 function rand(max) {
@@ -39,8 +39,14 @@ function displayVictoryMess(moves) {
   stopTime()
   document.getElementById("moves").innerHTML =
     moves + " 움직임 " + elapsedTime / 100 + " 시간만에 도착!"
-  let diff = ["Easy", "Normal", "Hard", "Extream"]
-  recordScore(myName, 10000 - moves - int(elapsedTime / 100), diff.indexOf(e))
+  let diff = ["Easy", "Medium", "Hard", "Extream"]
+  console.log(eName)
+  console.log(diff.indexOf(eName) + 3)
+  recordScore(
+    myName,
+    10000 - moves - parseInt(elapsedTime / 100),
+    diff.indexOf(eName) + 3
+  )
   toggleVisablity("Message-Container")
 }
 
@@ -610,6 +616,7 @@ function makeMaze() {
     player = null
   }
   e = document.getElementById("diffSelect")
+  eName = e.options[e.selectedIndex].text
   difficulty = e.options[e.selectedIndex].value
   cellSize = mazeCanvas.width / difficulty
   maze = new Maze(difficulty, difficulty)
