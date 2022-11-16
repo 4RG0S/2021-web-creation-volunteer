@@ -5,11 +5,11 @@ async function recordScore(name, score, gameId) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: {
+    body: JSON.stringify({
       name,
       score,
       gameId,
-    },
+    }),
   }
   let response = await fetch(url, option)
     .then((data) => console.log("기록완료"))
