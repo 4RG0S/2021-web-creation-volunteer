@@ -1,7 +1,5 @@
-import "../assets/js/recordScore"
-
 var e
-//let name = ""
+let myName
 
 function rand(max) {
   return Math.floor(Math.random() * max)
@@ -42,7 +40,7 @@ function displayVictoryMess(moves) {
   document.getElementById("moves").innerHTML =
     moves + " 움직임 " + elapsedTime / 100 + " 시간만에 도착!"
   let diff = ["Easy", "Normal", "Hard", "Extream"]
-  recordScore(name, 10000 - moves - int(elapsedTime / 100), diff.indexOf(e))
+  recordScore(myName, 10000 - moves - int(elapsedTime / 100), diff.indexOf(e))
   toggleVisablity("Message-Container")
 }
 
@@ -605,7 +603,7 @@ function makeMaze() {
   //document.getElementById("mazeCanvas").classList.add("border");
   clearTime()
   ok = confirm("시작하시겠습니까?")
-  //name = prompt("이름을 입력해주세요")
+  myName = prompt("이름을 입력해주세요")
   if (!ok) return
   if (player != undefined) {
     player.unbindKeyDown()
