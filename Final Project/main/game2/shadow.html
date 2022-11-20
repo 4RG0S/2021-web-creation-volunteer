@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shadow Game</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./shadow.css" />
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script src="../assets/js/recordScore.js"></script>
+    <script src="./shadow.js"></script>
+  </head>
+
+  <body>
+    <h1>Shadow Game</h1>
+
+    <div class="gbox">
+      <!--부가기능 버튼 -->
+      <div class="button">
+        <ul>
+          <li id="main">메인페이지</li>
+          <li id="home">처음으로</li>
+        </ul>
+      </div>
+
+      <!-- 시작화면 -->
+      <div class="start" style="display: none">
+        <p>그림자를 보고 정답을 맞추세요</p>
+        <p class="start_btn">시작하기</p>
+      </div>
+
+      <!-- 점수 출력 창 -->
+      <div class="score" style="display: none">
+        <p id="score">0점</p>
+      </div>
+
+      <!-- 문제 출력 창 -->
+      <div class="problem" style="display: none">
+        <img id="img" src="" />
+        <ul id="answers">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </div>
+
+      <!-- 한문제 풀고 정답 맞췄는지 출력 창 -->
+      <div class="correct" style="display: none">
+        <p id="o" style="display: none">정답입니다.</p>
+        <p id="x" style="display: none">틀렸습니다.</p>
+        <p id="next">다음 문제</p>
+      </div>
+
+      <!-- 최종결과 출력창 -->
+      <div class="result" style="display: none">
+        <p>참 잘했어요!!!</p>
+        <p class="start_btn">다시하기</p>
+      </div>
+    </div>
+  </body>
+</html>
